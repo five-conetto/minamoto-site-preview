@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>焼肉ホルモンたけ田 - 卓上サーバーで飲み放題！名物「蛇口レモンサワー」と自慢の厳選ホルモン</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;color:#1A1A1A;background:#FFFDF8;line-height:1.75;font-size:16px;-webkit-text-size-adjust:100%}
+img{max-width:100%;height:auto;display:block}
+a{color:#C8102E}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.site{background:#111;color:#fff;position:sticky;top:0;z-index:50}
+header.site .wrap{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
+.logo{font-weight:900;font-size:22px;color:#fff;text-decoration:none;letter-spacing:.02em;line-height:1.25}
+.logo small{display:block;font-size:11px;color:#FFC93C;font-weight:700;letter-spacing:.14em}
+nav.gnav{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
+nav.gnav a{color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:7px 11px;border-radius:6px;white-space:nowrap}
+nav.gnav a:hover{background:#C8102E}
+.page{display:none;padding:26px 0 54px}
+.page.active{display:block}
+h1.ptitle{font-size:30px;font-weight:900;margin:6px 0 18px;border-left:8px solid #C8102E;padding-left:12px;line-height:1.35}
+h2.sec{font-size:23px;font-weight:900;margin:30px 0 12px;line-height:1.4}
+h2.sec span{color:#C8102E}
+.btn{display:inline-block;background:#C8102E;color:#fff;text-decoration:none;font-weight:800;padding:12px 26px;border-radius:999px;border:0;cursor:pointer;font-size:16px}
+.btn.sub{background:#111}
+.hero{position:relative;background:#000}
+.hero video{width:100%;max-height:520px;object-fit:cover;display:block}
+.hero .cap{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.78));color:#fff;padding:44px 0 18px}
+.hero .cap .t1{font-size:clamp(21px,4.6vw,38px);font-weight:900;line-height:1.35}
+.hero .cap .t2{color:#FFC93C;font-weight:800;margin-top:4px;font-size:clamp(13px,2.4vw,17px)}
+.lead{background:#FFF3D6;border-bottom:4px solid #FFC93C;padding:16px 0;font-weight:800;text-align:center}
+.lead p{margin:2px 0}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:18px 0}
+.feat .card{background:#fff;border:1px solid #EFE6DA;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.feat .card img{width:100%;height:190px;object-fit:cover}
+.feat .card .in{padding:13px 15px}
+.feat .card h3{margin:0 0 6px;font-size:18px;font-weight:900;line-height:1.45}
+.feat .card p{margin:0;font-size:14px}
+.mlinks{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.mlinks a{display:block;border-radius:12px;overflow:hidden;border:2px solid #111;text-decoration:none}
+.mlinks img{width:100%;height:110px;object-fit:cover}
+.note{font-size:13px;color:#666}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.tabs button{border:2px solid #111;background:#fff;border-radius:999px;padding:8px 20px;font-weight:800;font-size:15px;cursor:pointer}
+.tabs button.on{background:#C8102E;border-color:#C8102E;color:#fff}
+.itemlist{border-top:2px solid #111}
+.itemrow{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 4px;border-bottom:1px solid #EFE6DA;cursor:pointer;background:none;border-left:0;border-right:0;border-top:0;width:100%;text-align:left;font:inherit}
+.itemrow:hover{background:#FFF7EA}
+.itemrow{display:flex;text-decoration:none;color:inherit}
+.itemrow .nm{font-weight:700;flex:1;min-width:0}
+.itemrow .nm small{display:block;color:#888;font-weight:400;font-size:12px}
+.itemrow .pr{font-weight:900;color:#C8102E;white-space:nowrap;flex-shrink:0}
+.grouphead{font-weight:900;margin:20px 0 4px;font-size:17px}
+.plan{background:#fff;border:1px solid #EFE6DA;border-radius:12px;padding:18px;margin:0 0 18px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.plan h3{margin:0 0 8px;font-size:19px;font-weight:900;line-height:1.5}
+.plan .desc{font-weight:700;color:#C8102E;margin:0 0 8px}
+.plan ol{margin:8px 0;padding-left:22px}
+.plan .foot{font-weight:800;margin-top:8px}
+.shopcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.shopcard{display:block;background:#fff;border:1px solid #EFE6DA;border-radius:12px;padding:14px 16px;cursor:pointer;text-decoration:none;color:inherit}
+.shopcard:hover{border-color:#C8102E}
+.shopcard .nm{font-weight:900;font-size:16px;line-height:1.45;margin-bottom:5px}
+.shopcard .ad,.shopcard .tl{font-size:13px;color:#444}
+dl.info{display:grid;grid-template-columns:96px 1fr;gap:8px 14px;background:#fff;border:1px solid #EFE6DA;border-radius:12px;padding:18px;margin:0 0 16px}
+dl.info dt{font-weight:900;color:#C8102E}
+dl.info dd{margin:0;overflow-wrap:anywhere}
+.newsrow{display:flex;gap:12px;align-items:baseline;padding:11px 4px;border-bottom:1px solid #EFE6DA;cursor:pointer;background:none;border-left:0;border-right:0;border-top:0;width:100%;text-align:left;font:inherit;flex-wrap:wrap}
+.newsrow:hover{background:#FFF7EA}
+.newsrow .dt{font-weight:800;white-space:nowrap;font-size:14px}
+.chip{display:inline-block;background:#111;color:#fff;font-size:11px;font-weight:800;border-radius:4px;padding:2px 8px;white-space:nowrap}
+.chip.red{background:#C8102E}
+.newsrow{display:flex;text-decoration:none;color:inherit}
+.newsrow .tt{font-weight:700;flex:1;min-width:0}
+article.newsbody p{margin:0 0 14px;overflow-wrap:anywhere}
+article.newsbody img{margin:0 auto 18px;border-radius:8px}
+.backlink{display:inline-block;margin:0 0 14px;font-weight:800;cursor:pointer;background:none;border:0;color:#C8102E;font-size:15px;padding:0}
+form.contact label{display:block;font-weight:800;margin:14px 0 5px}
+form.contact input,form.contact textarea{width:100%;border:1px solid #CFC6B8;border-radius:8px;padding:11px;font:inherit;background:#fff}
+.privacy h3{margin:20px 0 6px;font-size:17px}
+footer.site{background:#111;color:#ddd;margin-top:0;padding:30px 0 36px;font-size:14px}
+footer.site a{color:#FFC93C}
+footer.site .wrap div{margin:3px 0}
+.srcnote{font-size:12px;color:#999;margin-top:22px}
+@media (max-width:760px){
+ .feat{grid-template-columns:1fr}
+ .feat .card img{height:auto}
+ .mlinks{grid-template-columns:1fr 1fr}
+ h1.ptitle{font-size:24px}
+ h2.sec{font-size:20px}
+ nav.gnav{margin-left:0;flex-wrap:nowrap;overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}
+ .logo{font-size:19px}
+ dl.info{grid-template-columns:78px 1fr;padding:14px}
+ .newsrow .tt{min-width:0;flex-basis:100%}
+ .hero video{max-height:none}
+ .plan{padding:14px}
+ body{font-size:15px}
+}
+@media print{.page{display:block!important}header.site{position:static}}
+</style></head><body>
+<header class="site"><div class="wrap">
+<a class="logo" href="#" onclick="go('home');return false;">焼肉ホルモンたけ田<small>YAKINIKU HORUMON TAKEDA</small></a>
+<nav class="gnav">
+<a href="#" onclick="go('home');return false;">TOP</a>
+<a href="#" onclick="go('menu');return false;">メニュー</a>
+<a href="#" onclick="go('enkai');return false;">宴会</a>
+<a href="#" onclick="go('shops');return false;">店舗検索</a>
+<a href="#" onclick="go('news');return false;">お知らせ</a>
+<a href="#" onclick="go('contact');return false;">お問い合わせ</a>
+</nav></div></header>
+<section class="page active" id="page-home">
+<div class="hero"><video src="https://29takeda.com/wp-content/themes/takeda/img/tp.MP4" autoplay muted loop playsinline></video>
+<div class="cap"><div class="wrap"><div class="t1">卓上サーバーで飲み放題！<br>名物「蛇口レモンサワー」と自慢の厳選ホルモン</div><div class="t2">焼肉ホルモンたけ田 公式ブランドサイト（再構築版）</div></div></div></div>
+<div class="lead"><div class="wrap"><p>全卓に設置した専用サーバーで好きなだけすぐに、60分何杯でも !<br>注文の手間や待ち時間がなくてストレスフリー !<br>フレーバーシロップやトッピングで 好きな味を作って楽しめす！</p></div></div>
+<div class="wrap">
+<h2 class="sec">たけ田の<span>名物</span></h2>
+<div class="feat"><div class="card"><img src="https://29takeda.com/wp-content/uploads/2024/11/karubi.png" alt="たけ田和牛カルビ" loading="lazy"><div class="in"><h3>たけ田和牛カルビ</h3><p>最高級黒毛和牛A５使用。地域で一番お値打ちを目指します！和牛の旨味とたけ田のタレでごはんが進む！</p></div></div><div class="card"><img src="https://29takeda.com/wp-content/uploads/2026/06/godtang.png" alt="限定別格霜降りゴッドタン" loading="lazy"><div class="in"><h3>限定別格霜降りゴッドタン</h3><p>タン1本からわずかしか取れない、希少部位の極上霜降りタン。口に入れた瞬間、とろける旨さ。数量限定・売切御免。</p></div></div><div class="card"><img src="https://29takeda.com/wp-content/uploads/2026/06/shiro.png" alt="近江牛とろホルモン＆とろシマチョウ" loading="lazy"><div class="in"><h3>近江牛とろホルモン＆とろシマチョウ</h3><p>ぷるっ、とろっ、じゅわっ。口いっぱいに広がる脂の甘み。一度食べたらやみつきになる極上ホルモンです。</p></div></div></div>
+<p style="text-align:center"><a href="#" onclick="go('news-11663');return false;"><img src="https://29takeda.com/wp-content/uploads/2026/10/944051.jpg" alt="コラボ開催中" style="margin:0 auto;border-radius:12px" loading="lazy"></a></p>
+<h2 class="sec">メニュー</h2>
+<div class="mlinks"><a href="#" onclick="goMenu('niku');return false;"><img src="https://29takeda.com/wp-content/themes/takeda/img/link-niku.png" alt="肉" loading="lazy"></a><a href="#" onclick="goMenu('innards');return false;"><img src="https://29takeda.com/wp-content/themes/takeda/img/link-inners.png" alt="ホルモン" loading="lazy"></a><a href="#" onclick="goMenu('sidemenu');return false;"><img src="https://29takeda.com/wp-content/themes/takeda/img/link-side.png" alt="サイド" loading="lazy"></a><a href="#" onclick="goMenu('drink');return false;"><img src="https://29takeda.com/wp-content/themes/takeda/img/link-drink.png" alt="ドリンク" loading="lazy"></a></div>
+<h2 class="sec">宴会コース</h2>
+<p>各種宴会コース承ります！こだわりの焼き肉・ホルモン、サイドメニューも充実！レモンサワーも飲み放題で打ち上げや、年末年始の宴会もたけだで決まり！</p>
+<p><img src="https://29takeda.com/wp-content/uploads/2026/06/menu12026.jpg" alt="宴会メニュー" style="margin:0 auto 10px;border-radius:12px" loading="lazy"><img src="https://29takeda.com/wp-content/uploads/2026/06/menu22026.jpg" alt="宴会メニュー" style="margin:0 auto 10px;border-radius:12px" loading="lazy"></p>
+<p style="text-align:center"><button class="btn" onclick="go('enkai')">宴会プランを見る</button></p>
+<h2 class="sec">店内の空気にも<span>こだわり</span></h2>
+<p>さらにたけ田は肉がうまいだけじゃない！排気ダクトによる独自システムを店全体に導入しているので約3分に1回で店内の空気が入れ替わります !</p>
+<p style="text-align:center"><button class="btn sub" onclick="go('shops')">店舗検索・予約はこちら</button></p>
+<h2 class="sec">お知らせ</h2>
+<div><a class="newsrow" href="#" onclick="go('news-11663');return false;"><span class="dt">2026.10.26</span><span class="chip">お知らせ</span><span class="tt">「劇場シリーズメイドインアビス 目覚める神秘」×「焼肉ホルモンたけ田」、コラボ決定！</span></a><a class="newsrow" href="#" onclick="go('news-11654');return false;"><span class="dt">2026.9.24</span><span class="chip">お知らせ</span><span class="tt">2026年8月26日放送 TBS「Nスタ」さまに放映されました</span></a><a class="newsrow" href="#" onclick="go('news-11647');return false;"><span class="dt">2026.9.8</span><span class="chip red">新店情報</span><span class="tt">焼肉ホルモンたけ田 東岡崎店 オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-11601');return false;"><span class="dt">2026.6.23</span><span class="chip">お知らせ</span><span class="tt">映画「口に関するアンケート」メニューコラボのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-11598');return false;"><span class="dt">2026.6.23</span><span class="chip">お知らせ</span><span class="tt">季節限定メニュー販売のお知らせ</span></a></div>
+<p style="text-align:center;margin-top:14px"><button class="btn" onclick="go('news')">お知らせ一覧を見る</button></p>
+</div></section>
+<section class="page" id="page-menu"><div class="wrap">
+<h1 class="ptitle">メニュー</h1>
+<p class="note">※一部店舗で取扱商品、価格が異なる場合があります。詳しくはご来店される店舗まで直接お問い合わせください。</p>
+<div class="tabs"><button id="tab-niku" class="on" onclick="goMenu('niku')">肉</button><button id="tab-innards" class="" onclick="goMenu('innards')">ホルモン</button><button id="tab-sidemenu" class="" onclick="goMenu('sidemenu')">サイド</button><button id="tab-drink" class="" onclick="goMenu('drink')">ドリンク</button><button onclick="go('enkai')">宴会プラン</button></div>
+<div class="menusec" id="menusec-niku" style="display:block"><div class="itemlist"><a class="itemrow" href="#" onclick="showItem(0);return false;"><span class="nm">A5黒毛和牛たけ田カルビ</span><span class="pr">税込1099円</span></a><a class="itemrow" href="#" onclick="showItem(1);return false;"><span class="nm">限定別格霜降りゴッドタン 中盛り8枚</span><span class="pr">税込2178円</span></a><a class="itemrow" href="#" onclick="showItem(2);return false;"><span class="nm">名物ねぎ牛タン塩</span><span class="pr">税込1408円</span></a><a class="itemrow" href="#" onclick="showItem(3);return false;"><span class="nm">名物タン３種盛り</span><span class="pr">税込1408円</span></a><a class="itemrow" href="#" onclick="showItem(4);return false;"><span class="nm">ねぎ包みタン(１個）<small>※写真は4個です。</small></span><span class="pr">税込275円</span></a><a class="itemrow" href="#" onclick="showItem(5);return false;"><span class="nm">AU和牛 赤身上ロース</span><span class="pr">税込1099円</span></a><a class="itemrow" href="#" onclick="showItem(6);return false;"><span class="nm">限定別格霜降りゴッドタン 大盛り12枚</span><span class="pr">税込3278円</span></a><a class="itemrow" href="#" onclick="showItem(7);return false;"><span class="nm">牛タン塩</span><span class="pr">税込1099円</span></a><a class="itemrow" href="#" onclick="showItem(8);return false;"><span class="nm">厚切り上豚タン</span><span class="pr">税込879円</span></a><a class="itemrow" href="#" onclick="showItem(9);return false;"><span class="nm">厚切りタン塩ニンニク</span><span class="pr">税込989円</span></a><a class="itemrow" href="#" onclick="showItem(10);return false;"><span class="nm">米泥棒米堪能タンロース</span><span class="pr">税込769円</span></a><a class="itemrow" href="#" onclick="showItem(11);return false;"><span class="nm">まかないねぎ牛タン</span><span class="pr">税込769円</span></a><a class="itemrow" href="#" onclick="showItem(12);return false;"><span class="nm">ながーいタン（豚）</span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(13);return false;"><span class="nm">A5黒毛和牛特上カルビ 売切御免</span><span class="pr">税込1408円</span></a><a class="itemrow" href="#" onclick="showItem(14);return false;"><span class="nm">A5黒毛和牛希少部位カイノミ 売切御免</span><span class="pr">税込1408円</span></a><a class="itemrow" href="#" onclick="showItem(15);return false;"><span class="nm">プレミアム上ハラミ</span><span class="pr">税込1518円</span></a><a class="itemrow" href="#" onclick="showItem(16);return false;"><span class="nm">プレミアム上ハラミねぎ塩</span><span class="pr">税込1518円</span></a><a class="itemrow" href="#" onclick="showItem(17);return false;"><span class="nm">昔ながらの熟成カルビ</span><span class="pr">税込769円</span></a><a class="itemrow" href="#" onclick="showItem(18);return false;"><span class="nm">肉屋本気の熟成ロース</span><span class="pr">税込769円</span></a><a class="itemrow" href="#" onclick="showItem(19);return false;"><span class="nm">やわらか熟成ハラミ</span><span class="pr">税込879円</span></a><a class="itemrow" href="#" onclick="showItem(20);return false;"><span class="nm">AU和牛 赤身上ロースねぎ塩</span><span class="pr">税込1099円</span></a></div></div><div class="menusec" id="menusec-innards" style="display:none"><div class="itemlist"><a class="itemrow" href="#" onclick="showItem(21);return false;"><span class="nm">近江牛とろホルモン＆とろシマチョウ</span><span class="pr">税込879円</span></a><a class="itemrow" href="#" onclick="showItem(22);return false;"><span class="nm">近江牛新鮮厚切りレバー</span><span class="pr">税込989円</span></a><a class="itemrow" href="#" onclick="showItem(23);return false;"><span class="nm">特選厚切りミノ</span><span class="pr">税込989円</span></a><a class="itemrow" href="#" onclick="showItem(24);return false;"><span class="nm">名物シロコロホルモン</span><span class="pr">税込484円</span></a><a class="itemrow" href="#" onclick="showItem(25);return false;"><span class="nm">元祖かしら</span><span class="pr">税込484円</span></a><a class="itemrow" href="#" onclick="showItem(26);return false;"><span class="nm">せせり</span><span class="pr">税込484円</span></a><a class="itemrow" href="#" onclick="showItem(27);return false;"><span class="nm">大トロホルモン</span><span class="pr">税込418円</span></a><a class="itemrow" href="#" onclick="showItem(28);return false;"><span class="nm">とんちゃん</span><span class="pr">税込418円</span></a><a class="itemrow" href="#" onclick="showItem(29);return false;"><span class="nm">人気のはつ</span><span class="pr">税込484円</span></a><a class="itemrow" href="#" onclick="showItem(30);return false;"><span class="nm">通好みコブクロ</span><span class="pr">税込484円</span></a><a class="itemrow" href="#" onclick="showItem(31);return false;"><span class="nm">希少コリコリ</span><span class="pr">税込484円</span></a><a class="itemrow" href="#" onclick="showItem(32);return false;"><span class="nm">希少豚ウルテ</span><span class="pr">税込484円</span></a><a class="itemrow" href="#" onclick="showItem(33);return false;"><span class="nm">とんとろ</span><span class="pr">税込484円</span></a><a class="itemrow" href="#" onclick="showItem(34);return false;"><span class="nm">ソーセージ</span><span class="pr">税込484円</span></a></div></div><div class="menusec" id="menusec-sidemenu" style="display:none"><div class="itemlist"><a class="itemrow" href="#" onclick="showItem(35);return false;"><span class="nm">牛ユッケ<small>※塩せき加工しております</small></span><span class="pr">税込1309円</span></a><a class="itemrow" href="#" onclick="showItem(36);return false;"><span class="nm">数量限定！生触感牛レバ刺し<small>※低温調理済み</small></span><span class="pr">税込1309円</span></a><a class="itemrow" href="#" onclick="showItem(37);return false;"><span class="nm">白センマイ刺し</span><span class="pr">税込769円</span></a><a class="itemrow" href="#" onclick="showItem(38);return false;"><span class="nm">焼肉専用ねぎ飯</span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(39);return false;"><span class="nm">たけ田名物冷麺</span><span class="pr">税込1099円</span></a><a class="itemrow" href="#" onclick="showItem(40);return false;"><span class="nm">たけ田サラダ</span><span class="pr">税込659円</span></a><a class="itemrow" href="#" onclick="showItem(41);return false;"><span class="nm">白菜キムチ</span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(42);return false;"><span class="nm">やみつき！自家製ねぎキムチ</span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(43);return false;"><span class="nm">カクテキ</span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(44);return false;"><span class="nm">キムチ盛り合わせ</span><span class="pr">税込769円</span></a><a class="itemrow" href="#" onclick="showItem(45);return false;"><span class="nm">もやしナムル</span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(46);return false;"><span class="nm">小松菜ナムル</span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(47);return false;"><span class="nm">さっぱり大根甘酢漬け</span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(48);return false;"><span class="nm">わかめナムル</span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(49);return false;"><span class="nm">ナムル盛り合わせ</span><span class="pr">税込659円</span></a><a class="itemrow" href="#" onclick="showItem(50);return false;"><span class="nm">包み菜</span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(51);return false;"><span class="nm">チョレギサラダ</span><span class="pr">税込659円</span></a><a class="itemrow" href="#" onclick="showItem(52);return false;"><span class="nm">箸休めの酢もつ</span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(53);return false;"><span class="nm">おつまみ枝豆</span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(54);return false;"><span class="nm">やみつきごま塩きゅうり</span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(55);return false;"><span class="nm">韓国のり</span><span class="pr">税込219円</span></a><a class="itemrow" href="#" onclick="showItem(56);return false;"><span class="nm">エリンギバター</span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(57);return false;"><span class="nm">チヂミ</span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(58);return false;"><span class="nm">にんにくオイル焼き</span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(59);return false;"><span class="nm">カマンベール串</span><span class="pr">税込219円</span></a><a class="itemrow" href="#" onclick="showItem(60);return false;"><span class="nm">わかめスープ</span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(61);return false;"><span class="nm">わかめクッパ</span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(62);return false;"><span class="nm">たまごスープ</span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(63);return false;"><span class="nm">たまごクッパ</span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(64);return false;"><span class="nm">ユッケジャンスープ</span><span class="pr">税込879円</span></a><a class="itemrow" href="#" onclick="showItem(65);return false;"><span class="nm">ユッケジャンクッパ</span><span class="pr">税込989円</span></a><a class="itemrow" href="#" onclick="showItem(66);return false;"><span class="nm">特製の牛テールスープ</span><span class="pr">税込769円</span></a><a class="itemrow" href="#" onclick="showItem(67);return false;"><span class="nm">特製の牛テールクッパ</span><span class="pr">税込879円</span></a><a class="itemrow" href="#" onclick="showItem(68);return false;"><span class="nm">たけ田名物冷麺ハーフ</span><span class="pr">税込879円</span></a><a class="itemrow" href="#" onclick="showItem(69);return false;"><span class="nm">檸檬冷麵</span><span class="pr">税込1099円</span></a><a class="itemrow" href="#" onclick="showItem(70);return false;"><span class="nm">檸檬冷麵ハーフ</span><span class="pr">税込879円</span></a><a class="itemrow" href="#" onclick="showItem(71);return false;"><span class="nm">赤冷麺</span><span class="pr">税込1099円</span></a><a class="itemrow" href="#" onclick="showItem(72);return false;"><span class="nm">赤冷麺ハーフ</span><span class="pr">税込879円</span></a><a class="itemrow" href="#" onclick="showItem(73);return false;"><span class="nm">辛麺</span><span class="pr">税込1099円</span></a><a class="itemrow" href="#" onclick="showItem(74);return false;"><span class="nm">牛テール温麺</span><span class="pr">税込989円</span></a><a class="itemrow" href="#" onclick="showItem(75);return false;"><span class="nm">ライス中</span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(76);return false;"><span class="nm">ライス大</span><span class="pr">税込418円</span></a><a class="itemrow" href="#" onclick="showItem(77);return false;"><span class="nm">ライス特大</span><span class="pr">税込484円</span></a><a class="itemrow" href="#" onclick="showItem(78);return false;"><span class="nm">お野菜ビビンバ</span><span class="pr">税込659円</span></a><a class="itemrow" href="#" onclick="showItem(79);return false;"><span class="nm">バニラアイス</span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(80);return false;"><span class="nm">季節のシャーベット</span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(81);return false;"><span class="nm">店内仕込みとろけるプリン</span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(82);return false;"><span class="nm">信玄様のパフェ</span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(83);return false;"><span class="nm">キッズカレー</span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(84);return false;"><span class="nm">チキンナゲット</span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(85);return false;"><span class="nm">ナゲットカレー</span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(86);return false;"><span class="nm">キッズプレート</span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(87);return false;"><span class="nm">お子様ごはん</span><span class="pr">税込220円</span></a></div></div><div class="menusec" id="menusec-drink" style="display:none"><div class="itemlist"><a class="itemrow" href="#" onclick="showItem(88);return false;"><span class="nm">【60分】レモンサワー飲み放題<small>ドリンク</small></span><span class="pr">税込605円</span></a><a class="itemrow" href="#" onclick="showItem(89);return false;"><span class="nm">まるで酒場のハイボール[ﾉﾝｱﾙ]<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(90);return false;"><span class="nm">【100分】レモンサワー飲み放題<small>ドリンク</small></span><span class="pr">税込1089円</span></a><a class="itemrow" href="#" onclick="showItem(91);return false;"><span class="nm">生ビール<small>ドリンク</small></span><span class="pr">税込605円</span></a><a class="itemrow" href="#" onclick="showItem(92);return false;"><span class="nm">生ビール（大）<small>ドリンク</small></span><span class="pr">税込935円</span></a><a class="itemrow" href="#" onclick="showItem(93);return false;"><span class="nm">生ビール(小)<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(94);return false;"><span class="nm">瓶ビール<small>ドリンク</small></span><span class="pr">税込659円</span></a><a class="itemrow" href="#" onclick="showItem(95);return false;"><span class="nm">強炭酸ハイボール<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(96);return false;"><span class="nm">デュワーズハイボール<small>ドリンク</small></span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(97);return false;"><span class="nm">コークハイボール<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(98);return false;"><span class="nm">ジンジャーハイボール<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(99);return false;"><span class="nm">ウーロンハイ<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(100);return false;"><span class="nm">狭山抹茶ハイ<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(101);return false;"><span class="nm">焼肉専用 杏子ウーロンハイ<small>ドリンク</small></span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(102);return false;"><span class="nm">焼肉専用 杏子ジャスミンハイ<small>ドリンク</small></span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(103);return false;"><span class="nm">完熟マンゴーのウーロンハイ<small>ドリンク</small></span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(104);return false;"><span class="nm">完熟マンゴーのジャスミンハイ<small>ドリンク</small></span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(105);return false;"><span class="nm">後味さわやかジャスミンハイ<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(106);return false;"><span class="nm">芋焼酎 からり芋<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(107);return false;"><span class="nm">麦焼酎 和ら麦<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(108);return false;"><span class="nm">濃厚トマトハイ<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(109);return false;"><span class="nm">ラムネサワー<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(110);return false;"><span class="nm">ピーチティーサワー<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(111);return false;"><span class="nm">マンゴーサワー<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(112);return false;"><span class="nm">すっきりアップルビネガーサワー<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(113);return false;"><span class="nm">下町ハイボール（バイス）<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(114);return false;"><span class="nm">あんずサワー<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(115);return false;"><span class="nm">いつものレモンサワー<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(116);return false;"><span class="nm">タケダミンＣサワー<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(117);return false;"><span class="nm">ピーチソーダー・ウーロン・オレンジ各種<small>ドリンク</small></span><span class="pr">価格は店舗へお問い合わせください</span></a><a class="itemrow" href="#" onclick="showItem(118);return false;"><span class="nm">カシスソーダー・ウーロン・オレンジ各種<small>ドリンク</small></span><span class="pr">価格は店舗へお問い合わせください</span></a><a class="itemrow" href="#" onclick="showItem(119);return false;"><span class="nm">やかんハイボール 大<small>ドリンク</small></span><span class="pr">税込2178円</span></a><a class="itemrow" href="#" onclick="showItem(120);return false;"><span class="nm">やかんウーロンハイ 大<small>ドリンク</small></span><span class="pr">税込2178円</span></a><a class="itemrow" href="#" onclick="showItem(121);return false;"><span class="nm">やかん狭山抹茶ハイ 大<small>ドリンク</small></span><span class="pr">税込2178円</span></a><a class="itemrow" href="#" onclick="showItem(122);return false;"><span class="nm">やかん中各種<small>ドリンク</small></span><span class="pr">税込1099円</span></a><a class="itemrow" href="#" onclick="showItem(123);return false;"><span class="nm">マッコリグラス<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(124);return false;"><span class="nm">マッコリボトル（1L)<small>ドリンク</small></span><span class="pr">税込1539円</span></a><a class="itemrow" href="#" onclick="showItem(125);return false;"><span class="nm">レッドアイ<small>ドリンク</small></span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(126);return false;"><span class="nm">シャンディガフ<small>ドリンク</small></span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(127);return false;"><span class="nm">3種のポリフェノール赤梅酒<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(128);return false;"><span class="nm">日本酒グラス<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(129);return false;"><span class="nm">ノンアルコールビール<small>ドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(130);return false;"><span class="nm">ウーロン茶<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(131);return false;"><span class="nm">狭山茶抹茶<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(132);return false;"><span class="nm">コーラ<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(133);return false;"><span class="nm">ジンジャーエール<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(134);return false;"><span class="nm">ラムネ<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(135);return false;"><span class="nm">オレンジジュース<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(136);return false;"><span class="nm">りんごジュース<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(137);return false;"><span class="nm">カルピス<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(138);return false;"><span class="nm">カルピスソーダ<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(139);return false;"><span class="nm">トマトジュース<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(140);return false;"><span class="nm">炭酸水<small>ソフトドリンク</small></span><span class="pr">税込219円</span></a><a class="itemrow" href="#" onclick="showItem(141);return false;"><span class="nm">ホットウーロン茶<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(142);return false;"><span class="nm">ホット抹茶<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(143);return false;"><span class="nm">マンゴーソーダ<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(144);return false;"><span class="nm">あんずソーダ<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(145);return false;"><span class="nm">赤しそソーダ<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(146);return false;"><span class="nm">アップルビネガーソーダ<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(147);return false;"><span class="nm">ジャスミン茶<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(148);return false;"><span class="nm">ピーチティーソーダ<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(149);return false;"><span class="nm">タケダミンＣ<small>ソフトドリンク</small></span><span class="pr">税込329円</span></a><a class="itemrow" href="#" onclick="showItem(150);return false;"><span class="nm">つぶつぶラムネファクトリー<small>ソフトドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(151);return false;"><span class="nm">セカンド・ラブ<small>ソフトドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(152);return false;"><span class="nm">まるで酒場のレモンサワー[ﾉﾝｱﾙ]<small>ソフトドリンク</small></span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(153);return false;"><span class="nm">まるで酎ハイサワー(ドライ)[ﾉﾝｱﾙ]<small>ソフトドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(154);return false;"><span class="nm">まるで懐かしバイスサワー[ﾉﾝｱﾙ]<small>ソフトドリンク</small></span><span class="pr">税込549円</span></a><a class="itemrow" href="#" onclick="showItem(155);return false;"><span class="nm">焼肉に合う杏子ウーロン[ﾉﾝｱﾙ]<small>ソフトドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(156);return false;"><span class="nm">杏子のご褒美ジャスミン[ﾉﾝｱﾙ]<small>ソフトドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(157);return false;"><span class="nm">マンゴー香る大人ウーロン[ﾉﾝｱﾙ]<small>ソフトドリンク</small></span><span class="pr">税込439円</span></a><a class="itemrow" href="#" onclick="showItem(158);return false;"><span class="nm">口直しのマンゴージャスミン[ﾉﾝｱﾙ]<small>ソフトドリンク</small></span><span class="pr">税込439円</span></a></div></div>
+</div></section>
+<section class="page" id="page-item"><div class="wrap">
+<button class="backlink" onclick="go('menu')">← メニュー一覧へ戻る</button>
+<h1 class="ptitle" id="item-name"></h1>
+<dl class="info"><dt>カテゴリ</dt><dd id="item-cat"></dd><dt>価格</dt><dd id="item-price"></dd><dt>備考</dt><dd id="item-note"></dd></dl>
+<p class="note">※一部店舗で取扱商品、価格が異なる場合があります。詳しくはご来店される店舗まで直接お問い合わせください。</p>
+</div></section>
+<section class="page" id="page-enkai"><div class="wrap">
+<h1 class="ptitle">宴会プラン</h1>
+<div class="plan"><h3>たけ田の早割プラン2026 飲み放題込み6000円→4980円（税込）</h3><img src="https://29takeda.com/wp-content/uploads/2026/09/早割2026data-724x1024.jpg" alt="" style="margin:0 auto 10px;border-radius:8px" loading="lazy"><p class="desc">早割受付期間10月1日～12月10日／早割宴会実施可能期間10月13日～2027年2月28日</p><ol><li>キムチ盛り合わせ</li><li>もやしナムル</li><li>たけ田サラダ</li><li>ながーいタン塩（豚）ねぎ山添え</li><li>ねぎ包みタン</li><li>たけ田和牛カルビ</li><li>やわらか熟成ハラミ</li><li>A5黒毛和牛 希少部位カイノミ</li><li>ホルモンミックス</li><li>包み菜</li><li>豚カルビor豚とろ＆せせり＆ソーセージ</li><li>一口たけ田冷麺</li><li>ごはん小(ご希望者)</li><li>食後のバニラアイス</li></ol></div><div class="plan"><h3>120分制「カジュアルプラン」飲み放題付 税込3980円</h3><img src="https://29takeda.com/wp-content/uploads/2026/06/202606宴会POP_page-0001-1024x725.jpg" alt="" style="margin:0 auto 10px;border-radius:8px" loading="lazy"><p class="desc">たけ田の入口、お気軽に焼肉を楽しめる</p><ol><li>キムチ盛り合わせ</li><li>もやしナムル</li><li>たけ田サラダ</li><li>ながーいタン塩(豚)ねぎ山添え</li><li>昔ながらの熟成カルビ</li><li>ホルモンミックス</li><li>トントロ</li><li>せせり</li><li>ソーセージ</li><li>たまごクッパ</li></ol><p class="foot">アルコール、ソフトドリンク飲み放題付き</p></div><div class="plan"><h3>120分制「スタンダードプラン」人気No.1♪飲み放題付 税込4980円</h3><p class="desc">黒毛和牛や名物シルクタン、〆のデザートもあって大満足</p><ol><li>キムチ盛り合わせ</li><li>もやしナムル</li><li>たけ田サラダ</li><li>ながーいタン塩（豚）ねぎ山添え</li><li>ねぎ包みタン</li><li>たけ田和牛カルビ</li><li>包み菜</li><li>ホルモンミックス</li><li>トントロ</li><li>せせり</li><li>ソーセージ</li><li>たまごクッパ</li><li>食後のバニラアイス</li></ol><p class="foot">アルコール、ソフトドリンク飲み放題付き</p></div><div class="plan"><h3>120分制「贅沢プレミアムプラン」飲み放題付 税込5980円</h3><p class="desc">和牛贅沢稀少部位や上ハラミ、本場の盛岡冷麺も食べられる</p><ol><li>キムチ盛り合わせ</li><li>もやしナムル</li><li>たけ田サラダ</li><li>ながーいタン塩（豚）ねぎ山添え</li><li>ねぎ包みタン</li><li>たけ田和牛カルビ</li><li>やわらか熟成ハラミ</li><li>A5黒毛和牛 希少部位カイノミ</li><li>ホルモンミックス</li><li>包み菜</li><li>肉屋本気の熟成ロース</li><li>トントロ</li><li>せせり</li><li>ソーセージ</li><li>一口たけ田冷麺</li><li>食後のバニラアイス</li></ol><p class="foot">アルコール、ソフトドリンク飲み放題付き</p></div>
+<div class="plan"><h3>飲み放題内容</h3>
+<p><strong>◎ソフトドリンク</strong><br>ウーロン茶 / 狭山茶抹茶 / コーラ / ジンジャーエール / ラムネ / オレンジジュース / りんごジュース / カルピス / カルピスソーダ / トマトジュース / 炭酸水 / アセロラソーダ / パインソーダ / ピンクグレープフルーツソーダ / ピーチティーソーダ / のんあるたけ田ソーダ</p>
+<p><strong>◎アルコール</strong><br>レモンサワー飲み放題 / 生ビール / 生ビール(小) / 強炭酸ハイボール / コークハイボール / ジンジャーハイボール / ウーロンハイ / 狭山抹茶ハイ / 濃厚トマトハイ / アセロラサワー / ラムネサワー / ピーチティーサワー / パインサワー / ピンクグレープフルーツサワー / いつものレモンサワー / たけ田サワー / ピーチソーダ / ピーチオレンジ / ピーチウーロン / カシスソーダ / カシスオレンジ / カシスウーロン / マッコリグラス / 日本酒グラス / レッドアイ / シャンディガフ / デュワーズハイボール / 芋焼酎 からり芋 / 麦焼酎 和ら麦 / 梅酒</p></div>
+<p class="note">※一部店舗で取扱商品、価格が異なる場合があります。詳しくはご来店される店舗まで直接お問い合わせください。</p>
+</div></section>
+<section class="page" id="page-shops"><div class="wrap">
+<h1 class="ptitle">店舗検索</h1>
+<p>全国40店舗。店舗名をタップすると詳細（住所・電話・営業時間）が開きます。</p>
+<h2 class="sec">埼玉県<span>（9店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-11340');return false;"><div class="nm">焼肉ひろ㐂(プロデュース型店舗)</div><div class="ad">埼玉県さいたま市大宮区桜木町２丁目１５８−２ １F</div><div class="tl">TEL 048-871-6888</div></a><a class="shopcard" href="#" onclick="go('shop-11157');return false;"><div class="nm">小手指店 (プロデュース型店舗)</div><div class="ad">埼玉県所沢市小手指町1-11-25 水野ビル2階</div><div class="tl">TEL 04-2936-7729</div></a><a class="shopcard" href="#" onclick="go('shop-10269');return false;"><div class="nm">志木店</div><div class="ad">埼玉県志木市本町5-24-23 第2本吉ビル2階</div><div class="tl">TEL 048-476-4877</div></a><a class="shopcard" href="#" onclick="go('shop-10201');return false;"><div class="nm">飯能店</div><div class="ad">埼玉県飯能市仲町10-3 石川ビル1階</div><div class="tl">TEL 042-980-7529</div></a><a class="shopcard" href="#" onclick="go('shop-10156');return false;"><div class="nm">北戸田店</div><div class="ad">埼玉県戸田市新曽2188 ノーブル北戸田２階</div><div class="tl">TEL 048-291-9829</div></a><a class="shopcard" href="#" onclick="go('shop-9807');return false;"><div class="nm">大宮店</div><div class="ad">埼玉県さいたま市大宮区宮町２丁目13−１ 第１２松ビル 1階</div><div class="tl">TEL 048-641-3529</div></a><a class="shopcard" href="#" onclick="go('shop-9804');return false;"><div class="nm">西川口店</div><div class="ad">埼玉県川口市西川口１丁目５−３ 福原ビル2F</div><div class="tl">TEL 048-259-5080</div></a><a class="shopcard" href="#" onclick="go('shop-9801');return false;"><div class="nm">熊谷店</div><div class="ad">埼玉県熊谷市箱田 6-17-30</div><div class="tl">TEL 048-514-1003</div></a><a class="shopcard" href="#" onclick="go('shop-9795');return false;"><div class="nm">和牛焼肉 たけ田 武蔵藤沢店</div><div class="ad">埼玉県入間市下藤沢449-1 1F</div><div class="tl">TEL 04-2968-4555</div></a></div><h2 class="sec">千葉県<span>（2店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-11248');return false;"><div class="nm">館山店</div><div class="ad">千葉県館山市北条1623−1</div><div class="tl">TEL 0470-29-3329</div></a><a class="shopcard" href="#" onclick="go('shop-10265');return false;"><div class="nm">木更津店</div><div class="ad">千葉県木更津市東中央1-3-9</div><div class="tl">TEL 0438-53-8929</div></a></div><h2 class="sec">東京都<span>（11店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-11343');return false;"><div class="nm">大衆焼肉酒場 肉と米 焼肉あさ田 高田馬場店(プロデュース型店舗)</div><div class="ad">東京都新宿区西早稲田2-18-23スカイエスタ102号</div><div class="tl">TEL 03-6278-9770</div></a><a class="shopcard" href="#" onclick="go('shop-11251');return false;"><div class="nm">大衆焼肉酒場 肉と米 焼肉あさ田（プロデュース店舗）</div><div class="ad">東京都大田区大森西5-10-10</div><div class="tl">TEL 03-6410-8899</div></a><a class="shopcard" href="#" onclick="go('shop-9739');return false;"><div class="nm">和牛焼肉食べ放題 武田-Takeda-渋谷店</div><div class="ad">東京都渋谷区宇田川町24-8 レジャープラザビル1F</div><div class="tl">TEL 03-6433-7495</div></a><a class="shopcard" href="#" onclick="go('shop-9744');return false;"><div class="nm">厚切りタンとA5和牛食べ放題 焼肉ホルモンたけ田 池袋店</div><div class="ad">東京都豊島区南池袋１丁目19-2 後藤ビルB1</div><div class="tl">TEL 03-6907-0775</div></a><a class="shopcard" href="#" onclick="go('shop-10617');return false;"><div class="nm">東久留米店</div><div class="ad">東京都東久留米市東本町3−20</div><div class="tl">TEL 042-420-6662</div></a><a class="shopcard" href="#" onclick="go('shop-10199');return false;"><div class="nm">八王子店</div><div class="ad">東京都八王子市東町11番2号 千島ビルB1</div><div class="tl">TEL 042-649-8955</div></a><a class="shopcard" href="#" onclick="go('shop-9770');return false;"><div class="nm">新宿店</div><div class="ad">東京都新宿区歌舞伎町1-16-1 今宮ビル4階</div><div class="tl">TEL 050-1792-0383</div></a><a class="shopcard" href="#" onclick="go('shop-9768');return false;"><div class="nm">中野店</div><div class="ad">東京都中野区中野5-64-10 サンモール中野ビル4階</div><div class="tl">TEL 03-5942-7979</div></a><a class="shopcard" href="#" onclick="go('shop-9762');return false;"><div class="nm">高田馬場店</div><div class="ad">東京都新宿区高田馬場2-18-11 稲門ビルB1</div><div class="tl">TEL 03-6457-6529</div></a><a class="shopcard" href="#" onclick="go('shop-9756');return false;"><div class="nm">赤羽店</div><div class="ad">東京都北区赤羽１丁目２２−２ 大黒屋ビル 2.3F ファミリーマート上</div><div class="tl">TEL 03-6454-4548</div></a><a class="shopcard" href="#" onclick="go('shop-9753');return false;"><div class="nm">立川南口店</div><div class="ad">東京都立川市柴崎町３丁目３−２ 立川ステーションフロントビル 2階</div><div class="tl">TEL 042-508-2229</div></a></div><h2 class="sec">神奈川県<span>（2店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-10278');return false;"><div class="nm">茅ヶ崎店</div><div class="ad">神奈川県茅ケ崎市新栄町13-45 鴨志田ビル２F</div><div class="tl">TEL 0467-85-2933</div></a><a class="shopcard" href="#" onclick="go('shop-9775');return false;"><div class="nm">焼肉ホルモン ニューたけ田 辻堂店</div><div class="ad">神奈川県藤沢市辻堂1-2-1 中堂ビル1階</div><div class="tl">TEL 0466-31-2223</div></a></div><h2 class="sec">山梨県<span>（1店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-11126');return false;"><div class="nm">甲府平和通り店</div><div class="ad">山梨県甲府市住吉2-6-17</div><div class="tl">TEL 050-1807-6233</div></a></div><h2 class="sec">北海道<span>（1店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-9822');return false;"><div class="nm">札幌駅前店</div><div class="ad">札幌市中央区北3条西3-1-41 N北3西3ビルB1</div><div class="tl">TEL 011-596-0066</div></a></div><h2 class="sec">青森県<span>（2店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-11369');return false;"><div class="nm">焼肉むてき（プロデュース型店舗）</div><div class="ad">青森県八戸市鷹匠小路５−１</div><div class="tl">TEL 0178-47-0429</div></a><a class="shopcard" href="#" onclick="go('shop-11155');return false;"><div class="nm">八戸店</div><div class="ad">青森県八戸市十三日町1番地B1F-11</div><div class="tl">TEL 0178-51-9777</div></a></div><h2 class="sec">宮城県<span>（1店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-9830');return false;"><div class="nm">仙台青葉通店</div><div class="ad">宮城県仙台市青葉区一番町2-3-3 J-BOXビル 1F</div><div class="tl">TEL 022-399-9229</div></a></div><h2 class="sec">福島県<span>（1店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-11267');return false;"><div class="nm">朝日店</div><div class="ad">福島県郡山市桑野３丁目157ｰ5</div><div class="tl">TEL 024-983-7977</div></a></div><h2 class="sec">石川県<span>（1店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-10354');return false;"><div class="nm">金沢諸江店</div><div class="ad">石川県金沢市諸江町中丁262-1</div><div class="tl">TEL 076-204-8439</div></a></div><h2 class="sec">静岡県<span>（1店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-10144');return false;"><div class="nm">静岡呉服町店</div><div class="ad">静岡市葵区呉服町2-7-11 幸福ビル2階</div><div class="tl">TEL 054-291-5518</div></a></div><h2 class="sec">愛知県<span>（2店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-11644');return false;"><div class="nm">焼肉ホルモンたけ田 東岡崎店</div><div class="ad">愛知県岡崎市明大寺町字耳取60-1</div><div class="tl">TEL 0564-73-4441</div></a><a class="shopcard" href="#" onclick="go('shop-9819');return false;"><div class="nm">豊田店</div><div class="ad">愛知県豊田市神明町1-49-2</div><div class="tl">TEL 0565-34-6193</div></a></div><h2 class="sec">兵庫県<span>（1店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-10370');return false;"><div class="nm">神戸三宮店</div><div class="ad">兵庫県神戸市中央区北長狭通3丁目1-17 神戸トアロード山下ビル２F</div></a></div><h2 class="sec">広島県<span>（1店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-10687');return false;"><div class="nm">広島府中店</div><div class="ad">広島県安芸郡府中町大須4-6-6 塩本ビル２Ｆ</div><div class="tl">TEL 082-207-3855</div></a></div><h2 class="sec">鳥取県<span>（1店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-10972');return false;"><div class="nm">米子角盤店</div><div class="ad">鳥取県米子市角盤町１丁目１４６−４</div><div class="tl">TEL 0859-32-1129</div></a></div><h2 class="sec">福岡県<span>（1店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-10284');return false;"><div class="nm">天神大名店</div><div class="ad">福岡県福岡市中央区大名２丁目１−４２ 行武大名店舗 １階</div><div class="tl">TEL 092-753-6626</div></a></div><h2 class="sec">長崎県<span>（1店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-10843');return false;"><div class="nm">焼肉ホルモン おのだ（プロデュース型FC）</div><div class="ad">長崎県諫早市福田町6-26</div><div class="tl">TEL 0957-35-8555</div></a></div><h2 class="sec">香港<span>（1店舗）</span></h2><div class="shopcards"><a class="shopcard" href="#" onclick="go('shop-11173');return false;"><div class="nm">香港焼肉武田</div><div class="ad">沙田新城市廣場三期三樓A325</div><div class="tl">TEL 2982-8398</div></a></div>
+</div></section>
+<section class="page" id="page-shop-11340"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">焼肉ひろ㐂(プロデュース型店舗)</h1>
+<dl class="info"><dt>住所</dt><dd>埼玉県さいたま市大宮区桜木町２丁目１５８−２ １F</dd><dt>電話番号</dt><dd>048-871-6888</dd><dt>営業時間</dt><dd>平日：16:00〜23:00<br>土日：15:00～23:00<br>祝日(金)：15:00～23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/11340/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/11340/</p>
+</div></section>
+<section class="page" id="page-shop-11157"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">小手指店 (プロデュース型店舗)</h1>
+<dl class="info"><dt>住所</dt><dd>埼玉県所沢市小手指町1-11-25 水野ビル2階</dd><dt>電話番号</dt><dd>04-2936-7729</dd><dt>営業時間</dt><dd>平日：17:00〜23:00<br>土日祝：15:00〜23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/11157/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/11157/</p>
+</div></section>
+<section class="page" id="page-shop-10269"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">志木店</h1>
+<dl class="info"><dt>住所</dt><dd>埼玉県志木市本町5-24-23 第2本吉ビル2階</dd><dt>電話番号</dt><dd>048-476-4877</dd><dt>営業時間</dt><dd>平日：17:00〜23:00<br>土日祝：12:00〜23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/10269/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/10269/</p>
+</div></section>
+<section class="page" id="page-shop-10201"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">飯能店</h1>
+<dl class="info"><dt>住所</dt><dd>埼玉県飯能市仲町10-3 石川ビル1階</dd><dt>電話番号</dt><dd>042-980-7529</dd><dt>営業時間</dt><dd>平日：16:00～23:00<br>土日祝：12:00～23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/10201/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/10201/</p>
+</div></section>
+<section class="page" id="page-shop-10156"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">北戸田店</h1>
+<dl class="info"><dt>住所</dt><dd>埼玉県戸田市新曽2188 ノーブル北戸田２階</dd><dt>電話番号</dt><dd>048-291-9829</dd><dt>営業時間</dt><dd>平日：16:00～23:00（料理L.O. 22:30 ドリンクL.O. 22:30）<br>土日祝：12:00-23:00（料理L.O. 22:30 ドリンクL.O. 22:30）</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/10156/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/10156/</p>
+</div></section>
+<section class="page" id="page-shop-9807"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">大宮店</h1>
+<dl class="info"><dt>住所</dt><dd>埼玉県さいたま市大宮区宮町２丁目13−１ 第１２松ビル 1階</dd><dt>電話番号</dt><dd>048-641-3529</dd><dt>営業時間</dt><dd>平日：16:00～24:00<br>土日祝：15:00～24:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/9807/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/9807/</p>
+</div></section>
+<section class="page" id="page-shop-9804"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">西川口店</h1>
+<dl class="info"><dt>住所</dt><dd>埼玉県川口市西川口１丁目５−３ 福原ビル2F</dd><dt>電話番号</dt><dd>048-259-5080</dd><dt>営業時間</dt><dd>全日：16:00～23:30</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/9804/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/9804/</p>
+</div></section>
+<section class="page" id="page-shop-9801"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">熊谷店</h1>
+<dl class="info"><dt>住所</dt><dd>埼玉県熊谷市箱田 6-17-30</dd><dt>電話番号</dt><dd>048-514-1003</dd><dt>営業時間</dt><dd>16:00〜23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/9801/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/9801/</p>
+</div></section>
+<section class="page" id="page-shop-9795"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">和牛焼肉 たけ田 武蔵藤沢店</h1>
+<dl class="info"><dt>住所</dt><dd>埼玉県入間市下藤沢449-1 1F</dd><dt>電話番号</dt><dd>04-2968-4555</dd><dt>営業時間</dt><dd>平日：17:00～23:00<br>土日祝：12:00〜23:00</dd><dt>備考</dt><dd>※レモンサワーサーバーなし</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/9795/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/9795/</p>
+</div></section>
+<section class="page" id="page-shop-11248"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">館山店</h1>
+<dl class="info"><dt>住所</dt><dd>千葉県館山市北条1623−1</dd><dt>電話番号</dt><dd>0470-29-3329</dd><dt>営業時間</dt><dd>月〜金：16:00-23:00<br>土：12:00～23:00<br>日祝：12:00～23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/11248/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/11248/</p>
+</div></section>
+<section class="page" id="page-shop-10265"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">木更津店</h1>
+<dl class="info"><dt>住所</dt><dd>千葉県木更津市東中央1-3-9</dd><dt>電話番号</dt><dd>0438-53-8929</dd><dt>営業時間</dt><dd>月〜木：16:00〜23:00<br>金：16:00〜24:00<br>土：12:00〜24:00<br>日祝：12:00〜23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/10265/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/10265/</p>
+</div></section>
+<section class="page" id="page-shop-11343"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">大衆焼肉酒場 肉と米 焼肉あさ田 高田馬場店(プロデュース型店舗)</h1>
+<dl class="info"><dt>住所</dt><dd>東京都新宿区西早稲田2-18-23スカイエスタ102号</dd><dt>電話番号</dt><dd>03-6278-9770</dd><dt>営業時間</dt><dd>全日：16:00～23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/11343/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/11343/</p>
+</div></section>
+<section class="page" id="page-shop-11251"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">大衆焼肉酒場 肉と米 焼肉あさ田（プロデュース店舗）</h1>
+<dl class="info"><dt>住所</dt><dd>東京都大田区大森西5-10-10</dd><dt>電話番号</dt><dd>03-6410-8899</dd><dt>営業時間</dt><dd>16:00～23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/11251/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/11251/</p>
+</div></section>
+<section class="page" id="page-shop-9739"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">和牛焼肉食べ放題 武田-Takeda-渋谷店</h1>
+<dl class="info"><dt>住所</dt><dd>東京都渋谷区宇田川町24-8 レジャープラザビル1F</dd><dt>電話番号</dt><dd>03-6433-7495</dd><dt>営業時間</dt><dd>12:00～24:00<br>土日祝：12:00～24:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/9739/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/9739/</p>
+</div></section>
+<section class="page" id="page-shop-9744"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">厚切りタンとA5和牛食べ放題 焼肉ホルモンたけ田 池袋店</h1>
+<dl class="info"><dt>住所</dt><dd>東京都豊島区南池袋１丁目19-2 後藤ビルB1</dd><dt>電話番号</dt><dd>03-6907-0775</dd><dt>営業時間</dt><dd>月〜金、祝前日：17:00〜23:00（ラストオーダー22:30)<br>土日祝：16:00～23:00(ラストオーダー22:30)</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/9744/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/9744/</p>
+</div></section>
+<section class="page" id="page-shop-10617"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">東久留米店</h1>
+<dl class="info"><dt>住所</dt><dd>東京都東久留米市東本町3−20</dd><dt>電話番号</dt><dd>042-420-6662</dd><dt>営業時間</dt><dd>全日：17:00～23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/10617/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/10617/</p>
+</div></section>
+<section class="page" id="page-shop-10199"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">八王子店</h1>
+<dl class="info"><dt>住所</dt><dd>東京都八王子市東町11番2号 千島ビルB1</dd><dt>電話番号</dt><dd>042-649-8955</dd><dt>営業時間</dt><dd>平日：17:00-23:00(Lo22:30)<br>土日祝：11:30-23:00(Lo22:30)</dd><dt>備考</dt><dd>専用サイト：https://yakihoru-takehachi.com/</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/10199/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/10199/</p>
+</div></section>
+<section class="page" id="page-shop-9770"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">新宿店</h1>
+<dl class="info"><dt>住所</dt><dd>東京都新宿区歌舞伎町1-16-1 今宮ビル4階</dd><dt>電話番号</dt><dd>050-1792-0383</dd><dt>営業時間</dt><dd>月～金：12:00～23:00<br>土日祝：12:00-23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/9770/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/9770/</p>
+</div></section>
+<section class="page" id="page-shop-9768"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">中野店</h1>
+<dl class="info"><dt>住所</dt><dd>東京都中野区中野5-64-10 サンモール中野ビル4階</dd><dt>電話番号</dt><dd>03-5942-7979</dd><dt>営業時間</dt><dd>平日：16:00-23:00<br>土日祝：12:00-23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/9768/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/9768/</p>
+</div></section>
+<section class="page" id="page-shop-9762"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">高田馬場店</h1>
+<dl class="info"><dt>住所</dt><dd>東京都新宿区高田馬場2-18-11 稲門ビルB1</dd><dt>電話番号</dt><dd>03-6457-6529</dd><dt>営業時間</dt><dd>平日：16:00～24:00<br>土日祝：12:00～24:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/9762/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/9762/</p>
+</div></section>
+<section class="page" id="page-shop-9756"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">赤羽店</h1>
+<dl class="info"><dt>住所</dt><dd>東京都北区赤羽１丁目２２−２ 大黒屋ビル 2.3F ファミリーマート上</dd><dt>電話番号</dt><dd>03-6454-4548</dd><dt>営業時間</dt><dd>平日：16:00～23:00<br>土日：12:00～23:30<br>祝：15:00～23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/9756/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/9756/</p>
+</div></section>
+<section class="page" id="page-shop-9753"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">立川南口店</h1>
+<dl class="info"><dt>住所</dt><dd>東京都立川市柴崎町３丁目３−２ 立川ステーションフロントビル 2階</dd><dt>電話番号</dt><dd>042-508-2229</dd><dt>営業時間</dt><dd>平日：16:00〜23:00<br>土日祝：12:00〜23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/9753/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/9753/</p>
+</div></section>
+<section class="page" id="page-shop-10278"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">茅ヶ崎店</h1>
+<dl class="info"><dt>住所</dt><dd>神奈川県茅ケ崎市新栄町13-45 鴨志田ビル２F</dd><dt>電話番号</dt><dd>0467-85-2933</dd><dt>営業時間</dt><dd>平日：16:00～23:00<br>土日祝：ランチ12:00～15:00 ディナー16:00～23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/10278/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/10278/</p>
+</div></section>
+<section class="page" id="page-shop-9775"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">焼肉ホルモン ニューたけ田 辻堂店</h1>
+<dl class="info"><dt>住所</dt><dd>神奈川県藤沢市辻堂1-2-1 中堂ビル1階</dd><dt>電話番号</dt><dd>0466-31-2223</dd><dt>営業時間</dt><dd>平日：16:00〜23:00<br>土日祝：12:00-15:00(ランチ)16:00-23:00(ディナー)</dd><dt>備考</dt><dd>『ニューたけ田』のため、他店舗とメニューが異なります。</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/9775/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/9775/</p>
+</div></section>
+<section class="page" id="page-shop-11126"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">甲府平和通り店</h1>
+<dl class="info"><dt>住所</dt><dd>山梨県甲府市住吉2-6-17</dd><dt>電話番号</dt><dd>050-1807-6233</dd><dt>営業時間</dt><dd>17:00～23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/11126/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/11126/</p>
+</div></section>
+<section class="page" id="page-shop-9822"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">札幌駅前店</h1>
+<dl class="info"><dt>住所</dt><dd>札幌市中央区北3条西3-1-41 N北3西3ビルB1</dd><dt>電話番号</dt><dd>011-596-0066</dd><dt>営業時間</dt><dd>平日：16:00～24:00<br>土日祝：12:00～24:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/9822/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/9822/</p>
+</div></section>
+<section class="page" id="page-shop-11369"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">焼肉むてき（プロデュース型店舗）</h1>
+<dl class="info"><dt>住所</dt><dd>青森県八戸市鷹匠小路５−１</dd><dt>電話番号</dt><dd>0178-47-0429</dd><dt>営業時間</dt><dd>平日：16:00〜23:00<br>土日：15:00～23:00<br>祝日(金)：15:00～23:00</dd><dt>備考</dt><dd>臨時休業中</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/11369/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/11369/</p>
+</div></section>
+<section class="page" id="page-shop-11155"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">八戸店</h1>
+<dl class="info"><dt>住所</dt><dd>青森県八戸市十三日町1番地B1F-11</dd><dt>電話番号</dt><dd>0178-51-9777</dd><dt>営業時間</dt><dd>平日：17:00～23:00<br>土日祝：16:00〜23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/11155/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/11155/</p>
+</div></section>
+<section class="page" id="page-shop-9830"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">仙台青葉通店</h1>
+<dl class="info"><dt>住所</dt><dd>宮城県仙台市青葉区一番町2-3-3 J-BOXビル 1F</dd><dt>電話番号</dt><dd>022-399-9229</dd><dt>営業時間</dt><dd>平日：11:30~15:00 / 17:00~22:30<br>土・祝日前：12:00~22:30<br>日・祝：12:00〜22:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/9830/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/9830/</p>
+</div></section>
+<section class="page" id="page-shop-11267"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">朝日店</h1>
+<dl class="info"><dt>住所</dt><dd>福島県郡山市桑野３丁目157ｰ5</dd><dt>電話番号</dt><dd>024-983-7977</dd><dt>営業時間</dt><dd>平日：17:00-23:00<br>土日祝：16:00-23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/11267/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/11267/</p>
+</div></section>
+<section class="page" id="page-shop-10354"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">金沢諸江店</h1>
+<dl class="info"><dt>住所</dt><dd>石川県金沢市諸江町中丁262-1</dd><dt>電話番号</dt><dd>076-204-8439</dd><dt>営業時間</dt><dd>月～金：16:00～24:00<br>土：12:00-24:00<br>日・祝：12:00-22:00</dd><dt>備考</dt><dd>※祝前日の場合、24:00まで営業</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/10354/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/10354/</p>
+</div></section>
+<section class="page" id="page-shop-10144"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">静岡呉服町店</h1>
+<dl class="info"><dt>住所</dt><dd>静岡市葵区呉服町2-7-11 幸福ビル2階</dd><dt>電話番号</dt><dd>054-291-5518</dd><dt>営業時間</dt><dd>月〜金：17:00～23:00<br>土日：12:00～23:00<br>祝：17:00～23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/10144/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/10144/</p>
+</div></section>
+<section class="page" id="page-shop-11644"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">焼肉ホルモンたけ田 東岡崎店</h1>
+<dl class="info"><dt>住所</dt><dd>愛知県岡崎市明大寺町字耳取60-1</dd><dt>電話番号</dt><dd>0564-73-4441</dd><dt>営業時間</dt><dd>月～木：17:00～23:00<br>金：17:00～24:00<br>土：16:00～24:00<br>日：16:00～23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/11644/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/11644/</p>
+</div></section>
+<section class="page" id="page-shop-9819"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">豊田店</h1>
+<dl class="info"><dt>住所</dt><dd>愛知県豊田市神明町1-49-2</dd><dt>電話番号</dt><dd>0565-34-6193</dd><dt>営業時間</dt><dd>月～木：17:00～23:00<br>金：16:00～24:00<br>土：12:00～24:00<br>日：12:00～23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/9819/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/9819/</p>
+</div></section>
+<section class="page" id="page-shop-10370"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">神戸三宮店</h1>
+<dl class="info"><dt>住所</dt><dd>兵庫県神戸市中央区北長狭通3丁目1-17 神戸トアロード山下ビル２F</dd><dt>営業時間</dt><dd>月～金：16:00〜23:00<br>土日祝：12:00～23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/10370/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/10370/</p>
+</div></section>
+<section class="page" id="page-shop-10687"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">広島府中店</h1>
+<dl class="info"><dt>住所</dt><dd>広島県安芸郡府中町大須4-6-6 塩本ビル２Ｆ</dd><dt>電話番号</dt><dd>082-207-3855</dd><dt>営業時間</dt><dd>平日：17:00-23:00<br>土日祝：16:00-23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/10687/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/10687/</p>
+</div></section>
+<section class="page" id="page-shop-10972"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">米子角盤店</h1>
+<dl class="info"><dt>住所</dt><dd>鳥取県米子市角盤町１丁目１４６−４</dd><dt>電話番号</dt><dd>0859-32-1129</dd><dt>営業時間</dt><dd>平日：11:30~15:00 / 16:00~23:00<br>土・祝日前：11:00~23:00<br>日・祝：11:00~22:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/10972/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/10972/</p>
+</div></section>
+<section class="page" id="page-shop-10284"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">天神大名店</h1>
+<dl class="info"><dt>住所</dt><dd>福岡県福岡市中央区大名２丁目１−４２ 行武大名店舗 １階</dd><dt>電話番号</dt><dd>092-753-6626</dd><dt>営業時間</dt><dd>平日：16:00～24:00<br>土日祝：12:00～24:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/10284/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/10284/</p>
+</div></section>
+<section class="page" id="page-shop-10843"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">焼肉ホルモン おのだ（プロデュース型FC）</h1>
+<dl class="info"><dt>住所</dt><dd>長崎県諫早市福田町6-26</dd><dt>電話番号</dt><dd>0957-35-8555</dd><dt>営業時間</dt><dd>平日：17:00～23:00<br>土日祝：17:00～23:00</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/10843/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/10843/</p>
+</div></section>
+<section class="page" id="page-shop-11173"><div class="wrap">
+<button class="backlink" onclick="go('shops')">← 店舗一覧へ戻る</button>
+<h1 class="ptitle">香港焼肉武田</h1>
+<dl class="info"><dt>住所</dt><dd>沙田新城市廣場三期三樓A325</dd><dt>電話番号</dt><dd>2982-8398</dd><dt>営業時間</dt><dd>店舗へお問い合わせください</dd></dl>
+<p><a class="btn" href="https://29takeda.com/shop/11173/" target="_blank" rel="noopener">公式サイトで予約・詳細を見る</a></p>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト 店舗ページ https://29takeda.com/shop/11173/</p>
+</div></section>
+<section class="page" id="page-news"><div class="wrap">
+<h1 class="ptitle">お知らせ・最新情報</h1>
+<div><a class="newsrow" href="#" onclick="go('news-11663');return false;"><span class="dt">2026.10.26</span><span class="chip">お知らせ</span><span class="tt">「劇場シリーズメイドインアビス 目覚める神秘」×「焼肉ホルモンたけ田」、コラボ決定！</span></a><a class="newsrow" href="#" onclick="go('news-11654');return false;"><span class="dt">2026.9.24</span><span class="chip">お知らせ</span><span class="tt">2026年8月26日放送 TBS「Nスタ」さまに放映されました</span></a><a class="newsrow" href="#" onclick="go('news-11647');return false;"><span class="dt">2026.9.8</span><span class="chip red">新店情報</span><span class="tt">焼肉ホルモンたけ田 東岡崎店 オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-11601');return false;"><span class="dt">2026.6.23</span><span class="chip">お知らせ</span><span class="tt">映画「口に関するアンケート」メニューコラボのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-11598');return false;"><span class="dt">2026.6.23</span><span class="chip">お知らせ</span><span class="tt">季節限定メニュー販売のお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-11588');return false;"><span class="dt">2026.5.12</span><span class="chip">お知らせ</span><span class="tt">季節限定メニュー販売のお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-11575');return false;"><span class="dt">2026.3.24</span><span class="chip">お知らせ</span><span class="tt">🌸春のお祝い焼肉祭り 開催🌸</span></a><a class="newsrow" href="#" onclick="go('news-11556');return false;"><span class="dt">2026.2.12</span><span class="chip">お知らせ</span><span class="tt">たけ田 創業8周年 還元祭 開催！！</span></a><a class="newsrow" href="#" onclick="go('news-11495');return false;"><span class="dt">2025.11.4</span><span class="chip">お知らせ</span><span class="tt">日本三大和牛フェア開催 のお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-11472');return false;"><span class="dt">2025.8.21</span><span class="chip">お知らせ</span><span class="tt">たけ田秋の焼肉チャレンジ祭り2025</span></a><a class="newsrow" href="#" onclick="go('news-11464');return false;"><span class="dt">2025.7.14</span><span class="chip">お知らせ</span><span class="tt">たけ田のサマージャンボスクラッチ開催のお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-11456');return false;"><span class="dt">2025.6.16</span><span class="chip">お知らせ</span><span class="tt">冷麺フェア開催決定</span></a><a class="newsrow" href="#" onclick="go('news-11360');return false;"><span class="dt">2025.4.1</span><span class="chip">お知らせ</span><span class="tt">シマチョウ食べ比べ大会開催！</span></a><a class="newsrow" href="#" onclick="go('news-11355');return false;"><span class="dt">2025.4.1</span><span class="chip red">新店情報</span><span class="tt">肉ト米あさ田高田馬場店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-11353');return false;"><span class="dt">2025.3.23</span><span class="chip red">新店情報</span><span class="tt">焼肉ひろ㐂オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-11326');return false;"><span class="dt">2025.2.1</span><span class="chip">お知らせ</span><span class="tt">春の宴会超得早割プラン予約受付開始！</span></a><a class="newsrow" href="#" onclick="go('news-11315');return false;"><span class="dt">2025.1.28</span><span class="chip">お知らせ</span><span class="tt">「キムチの家」さん×たけ田コラボの特別メニューが1月27日から新登場！</span></a><a class="newsrow" href="#" onclick="go('news-11308');return false;"><span class="dt">2024.11.13</span><span class="chip red">新店情報</span><span class="tt">朝日店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-11306');return false;"><span class="dt">2024.10.10</span><span class="chip red">新店情報</span><span class="tt">肉ト米あさ田大森店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-11304');return false;"><span class="dt">2024.10.1</span><span class="chip red">新店情報</span><span class="tt">館山店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-11205');return false;"><span class="dt">2024.7.25</span><span class="chip">イベント情報</span><span class="tt">本日よりたけ田 夏の日本三大和牛フェア開催</span></a><a class="newsrow" href="#" onclick="go('news-11176');return false;"><span class="dt">2024.7.3</span><span class="chip red">新店情報</span><span class="tt">香港焼肉武田オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-11162');return false;"><span class="dt">2024.6.14</span><span class="chip red">新店情報</span><span class="tt">小手指店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-11160');return false;"><span class="dt">2024.6.14</span><span class="chip red">新店情報</span><span class="tt">八戸店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-11130');return false;"><span class="dt">2024.6.2</span><span class="chip red">新店情報</span><span class="tt">甲府平和通り店 オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10984');return false;"><span class="dt">2024.5.1</span><span class="chip red">新店情報</span><span class="tt">焼肉たけちゃん オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10975');return false;"><span class="dt">2024.4.16</span><span class="chip red">新店情報</span><span class="tt">米子角盤店 オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10950');return false;"><span class="dt">2024.3.8</span><span class="chip">メディア掲載</span><span class="tt">王様のブランチ放送決定</span></a><a class="newsrow" href="#" onclick="go('news-10946');return false;"><span class="dt">2024.3.7</span><span class="chip">イベント情報</span><span class="tt">3/15〜🌸たけ田🌸</span></a><a class="newsrow" href="#" onclick="go('news-10937');return false;"><span class="dt">2024.2.11</span><span class="chip">イベント情報</span><span class="tt">5周年創業祭を開催します！</span></a><a class="newsrow" href="#" onclick="go('news-10930');return false;"><span class="dt">2024.2.10</span><span class="chip">イベント情報</span><span class="tt">2月29日は「29の日」！！</span></a><a class="newsrow" href="#" onclick="go('news-10838');return false;"><span class="dt">2023.12.4</span><span class="chip">イベント情報</span><span class="tt">たけ田『年末プレミアムジャンボ』キャンペーン開催中！</span></a><a class="newsrow" href="#" onclick="go('news-10833');return false;"><span class="dt">2023.11.24</span><span class="chip">イベント情報</span><span class="tt">たけ田の『タンで埼玉！』キャンペーン👄</span></a><a class="newsrow" href="#" onclick="go('news-10810');return false;"><span class="dt">2023.10.11</span><span class="chip red">新店情報</span><span class="tt">焼肉ホルモンたけ田 広島府中店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10683');return false;"><span class="dt">2023.8.27</span><span class="chip">イベント情報</span><span class="tt">にんにくフェア開催！</span></a><a class="newsrow" href="#" onclick="go('news-10669');return false;"><span class="dt">2023.8.2</span><span class="chip red">新店情報</span><span class="tt">渋谷センター街店リニューアルのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10675');return false;"><span class="dt">2023.7.30</span><span class="chip">イベント情報</span><span class="tt">山の日キャンペーン開催のお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10623');return false;"><span class="dt">2023.4.25</span><span class="chip red">新店情報</span><span class="tt">東久留米焼肉ホルモンたけ田 リニューアルオープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10372');return false;"><span class="dt">2023.4.7</span><span class="chip red">新店情報</span><span class="tt">焼肉ホルモンたけ田 神戸三宮店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10357');return false;"><span class="dt">2023.3.13</span><span class="chip red">新店情報</span><span class="tt">金沢諸江店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10349');return false;"><span class="dt">2023.2.28</span><span class="chip red">新店情報</span><span class="tt">茅ヶ崎店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10291');return false;"><span class="dt">2023.2.14</span><span class="chip red">新店情報</span><span class="tt">天神大名店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10289');return false;"><span class="dt">2023.2.14</span><span class="chip red">新店情報</span><span class="tt">志木店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10287');return false;"><span class="dt">2023.2.14</span><span class="chip red">新店情報</span><span class="tt">木更津店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10258');return false;"><span class="dt">2022.12.22</span><span class="chip red">新店情報</span><span class="tt">飯能店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10243');return false;"><span class="dt">2022.12.17</span><span class="chip red">新店情報</span><span class="tt">八王子店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10207');return false;"><span class="dt">2022.12.10</span><span class="chip red">新店情報</span><span class="tt">北戸田店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10190');return false;"><span class="dt">2022.11.23</span><span class="chip red">新店情報</span><span class="tt">所沢北原店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10194');return false;"><span class="dt">2022.11.20</span><span class="chip red">新店情報</span><span class="tt">静岡呉服町店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10137');return false;"><span class="dt">2022.10.7</span><span class="chip red">新店情報</span><span class="tt">天文館店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10134');return false;"><span class="dt">2022.10.7</span><span class="chip red">新店情報</span><span class="tt">中野店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-10130');return false;"><span class="dt">2022.10.7</span><span class="chip red">新店情報</span><span class="tt">新宿店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-9723');return false;"><span class="dt">2022.8.1</span><span class="chip red">新店情報</span><span class="tt">東久留米店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-9721');return false;"><span class="dt">2022.7.19</span><span class="chip">お知らせ</span><span class="tt">グランドメニューリニューアルのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-9719');return false;"><span class="dt">2022.7.12</span><span class="chip red">新店情報</span><span class="tt">古淵店オープンのお知らせ</span></a><a class="newsrow" href="#" onclick="go('news-9715');return false;"><span class="dt">2022.7.12</span><span class="chip red">新店情報</span><span class="tt">横浜西口店オープンのお知らせ</span></a></div>
+</div></section>
+<section class="page" id="page-news-11663"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2026.10.26</span> <span class="chip">お知らせ</span></p>
+<h1 class="ptitle">「劇場シリーズメイドインアビス 目覚める神秘」×「焼肉ホルモンたけ田」、コラボ決定！</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2026/10/944051-1024x512.jpg" alt="" loading="lazy"><p>11月6日（金）より「劇場シリーズメイドインアビス 目覚める神秘」のコラボメニューやコラボグッズの販売を、全国の32店舗にて展開いたします。※実施店舗は下記の特設サイトを参照ください。</p><p>「みんなでもぐもぐ焼肉」をコンセプトに、楽しそうにお食事をする描き下ろしイラスト。</p><p>そして、このイラストで食べているメニューは、実際のコラボメニューとしてお楽しみいただけます。</p><p>さらに、この描き下ろしイラストを使用したオリジナルグッズ販売など、さまざまなキャンペーンを展開いたします。</p><p>◆実施期間◆ 2026年11月6日（金）～12月6日（日）まで ※営業時間は店舗により異なります。</p><p>詳しくは、特設サイトをご覧ください https://www.edith.co.jp/lp/madeinabyss-horumontakeda/</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11663/</p>
+</div></section>
+<section class="page" id="page-news-11654"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2026.9.24</span> <span class="chip">お知らせ</span></p>
+<h1 class="ptitle">2026年8月26日放送 TBS「Nスタ」さまに放映されました</h1>
+<article class="newsbody"><p>「異色の食べ放題が人気」という特集の中で、池袋店で実施しているが取り上げられました。</p><p>見た目が少し悪く市場に出回らない規格外の桃を安く仕入れることで、一級品の味をお手頃価格で提供している企業努力が紹介されたほか、たけ田名物の「蛇口からレモンサワー」と桃を掛け合わせた『ピーチレモンサワー』をお客様が楽しむ様子も放映されております。お客様からも「最高！」「甘くて美味しい」と大変好評をいただきました。</p><p>実際の放送内容は、TBSの公式YouTubeチャンネルにて公開されております。</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11654/</p>
+</div></section>
+<section class="page" id="page-news-11647"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2026.9.8</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">焼肉ホルモンたけ田 東岡崎店 オープンのお知らせ</h1>
+<article class="newsbody"><p>オープン日：2026年9月9日（水）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11647/</p>
+</div></section>
+<section class="page" id="page-news-11601"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2026.6.23</span> <span class="chip">お知らせ</span></p>
+<h1 class="ptitle">映画「口に関するアンケート」メニューコラボのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2026/06/たけ田_口に関するアンケートPOP_卓上_page-0001-725x1024.jpg" alt="" loading="lazy"><p>2026年6月22日（月）～7月31日（金）</p><p>映画『口に関するアンケート』は、「口」「証言」「アンケート」「口にしたら、最後――。」を核としたホラー作品。</p><p>映画の核である「口」「証言」「アンケート」を、たけ田の店舗体験に翻訳。「口」を体験化する参加型コラボを実現しました！</p><p>口にしたら最後タンに関するアンケート 禁断の黒レモンサワー 禁断のレモンサワーシロップ 口封じの黒ごまアイス</p><p>さらに…フォロー＆ストーリーシェアで「映画鑑賞券」「映画非売品ステッカー」「たけ田商品券」をプレゼント！✨</p><p>▼プレゼント内容 🎟 映画鑑賞券：5名様 👄 非売品ステッカー：10名様 🍖 たけ田商品券：50名様 ▼応募方法 公式Instagram、Xをご覧ください</p><p>▼キャンペーン期間 2026年7月31日（金）23:59まで ※当選発表は当選者へのご連絡をもって代えさせていただきます。</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11601/</p>
+</div></section>
+<section class="page" id="page-news-11598"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2026.6.23</span> <span class="chip">お知らせ</span></p>
+<h1 class="ptitle">季節限定メニュー販売のお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2026/06/0622月替わりメニュー卓上POP_page-0001-1024x725.jpg" alt="" loading="lazy"><p>期間限定メニュー登場🔥 今しか食べられない限定メニューがスタート‼️</p><p>🥩口にしたら最後タンに関するアンケート 🥩なが〜いドラゴンカルビ 🍙ガーリックライスの焼きおにぎり 🧈焼肉屋のじゃがバタチーズ 🍜エゴママックスス（超黒ごま冷麺） 🍋禁断の黒レモンサワー 🍋禁断のレモンサワーシロップ 🍨口封じの黒ごまアイス さらに…</p><p>🎬話題の映画コラボ企画も開催中！</p><p>数量限定の商品もあるので、気になる方はお早めに💨</p><p>焼肉の〆まで楽しめる、この時期だけの特別メニューをぜひご賞味ください！</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11598/</p>
+</div></section>
+<section class="page" id="page-news-11588"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2026.5.12</span> <span class="chip">お知らせ</span></p>
+<h1 class="ptitle">季節限定メニュー販売のお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2026/05/0511月替わりメニュー卓上POP.jpg" alt="" loading="lazy"><p>5/11〜6/21限定 季節限定メニューの販売をスタートいたします！</p><p>初夏にぴったりのさっぱりとした「トマト冷麺」🍅 豪快に焼き上げる食べ応え抜群の「ドラゴンカルビ」🍖 香ばしさが食欲をそそる「焼きおにぎり」🍙 など、この期間だけお楽しみいただける特別メニューを多数ご用意いたしました。</p><p>さらに・・・ お酒との相性抜群の「やみつき赤盛り」🥩 熱々とろ〜り食感が楽しめる「じゃがバタチーズ」🥔 食後にぴったりな「抹茶わらびもちとバニラアイス」🍨 など、お食事の最初から最後までお楽しみいただけるラインナップとなっております。</p><p>ご家族でのお食事、ご友人とのお集まり、お仕事帰りのお食事にもおすすめです。ぜひこの機会に、期間限定ならではの特別な味わいをお楽しみください。スタッフ一同、皆さまのご来店を心よりお待ちしております。</p><p>※期間限定販売となります ※数量限定商品は売り切れとなる場合がございます</p><p>📍対象店舗 焼肉ホルモンたけ田（※一部店舗を除く）ご確認ください</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11588/</p>
+</div></section>
+<section class="page" id="page-news-11575"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2026.3.24</span> <span class="chip">お知らせ</span></p>
+<h1 class="ptitle">🌸春のお祝い焼肉祭り 開催🌸</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2026/03/春施策POP_A4_page-0001-724x1024.jpg" alt="" loading="lazy"><p>今日の「おめでとう」が、いつか思い出したくなるひとときになりますように。その一瞬をつくることが、私たちたけ田の願いです。</p><p>新社会人・新入学・新生活スタートの皆さまへ。“お祝いするなら、今。”</p><p>🔥🔥 ① 新◯◯お祝い企画：新社会人・新入学など「新◯◯」が証明できる方 🌸桜咲くタン 499円 → 無料🌸 ※公式Instagramいいね＆フォロー ※先着5名様／1組1皿まで ※証明書提示必須（学生証・社員証・免許証・合格通知など）</p><p>② 復刻！ねぎ山たけ田タン 春価格799円 あの人気メニューが期間限定で復活！</p><p>③ 赤星（中瓶）春価格380円 赤星で乾杯！ ※1組2本まで</p><p>さらに… 🎁ご来店のお客様に次回使えるチケットプレゼント🎁 500円金券 限定・別格霜降りゴッドタン300円割引</p><p>おいしいだけじゃない、“記憶に残る時間”を。この春、一番おめでたい日は焼肉で。ご来店お待ちしております！</p><p>📍対象店舗 焼肉ホルモンたけ田（※一部店舗を除く）ご確認ください</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11575/</p>
+</div></section>
+<section class="page" id="page-news-11556"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2026.2.12</span> <span class="chip">お知らせ</span></p>
+<h1 class="ptitle">たけ田 創業8周年 還元祭 開催！！</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2026/02/image-819x1024.png" alt="" loading="lazy"><p>たけ田は創業8周年。ここまで続けてこられたのは、間違いなく地域のみなさんのおかげです。言葉じゃ足りないから、数字と量で還元しますっ！</p><p>🥩① 復刻！創業手作りタレ 創業当時から愛されてきた、あの店内熟成の「旨だれ」が期間限定で復活。なんと6種類のホルモン盛り1298円相当が888円！</p><p>🥩② 復刻！ねぎ山たけ田タン かつての大大大人気メニューが、満を持してカムバック🔥 タンにたっぷりのネギを巻いて焼く…口に入れた瞬間、「これこれ！」って声、出ます</p><p>🍺③ 対象ドリンクが188円 8周年にちなんで、ハイボール・狭山茶抹茶ハイ・タケダミンCサワー・タケダミンCソーダ・狭山茶抹茶 が期間中何杯飲んでも1杯188円！</p><p>🔥④ 人気商品が≪80％増量≫！！ せせり・とんちゃん・かしら・もやしナムル 同じ値段で、ほぼ倍。「太っ腹」って、こういうことです。</p><p>🎁⑤ 総額88万円分！お食事券プレゼント ✨10,000円分 × 88名様✨ Instagram・Xから簡単応募！</p><p>📅開催期間 2月24日〜3月31日 📍対象店舗 焼肉ホルモンたけ田（※一部店舗を除く）ご確認ください</p><p>8周年は通過点。でも、この還元祭は今しかありません！懐かしい人も、初めての人も。この期間にぜひ、“いま一番うまい たけ田”を味わってください🔥</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11556/</p>
+</div></section>
+<section class="page" id="page-news-11495"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2025.11.4</span> <span class="chip">お知らせ</span></p>
+<h1 class="ptitle">日本三大和牛フェア開催 のお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2025/11/IMG_9507-723x1024.jpeg" alt="" loading="lazy"><p>＼日本三大和牛フェア開催／ 日本が誇る極上ブランド牛🥩✨ 肉のきめ細かさ、旨みの余韻まで上品。希少価値の高い近江牛！</p><p>🍽️日本が誇る本当においしい和牛を日常価格で食べてほしいから…！👇</p><p>・近江牛贅沢赤身ロース 1,999円→（税込1,649） ・近江牛盛り合わせ（シマチョウ・赤身・レバー）1,599円（税込1,759）</p><p>焼肉たけ田がこだわる“本物の贅沢を身近に”という想いを込めて。</p><p>🗓キャンペーン期間：2025年11月4日(火)〜2026年1月12日(月)</p><p>🎁さらに抽選で1万円相当のが50名様に当たる！！</p><p>とろける旨みを、この機会にぜひ。今しか味わえない、至福のひと皿を──。</p><p>※ギフトセットは一部変更になる場合があります。当選者の発表は、賞品の発送をもって代えさせていただきます。応募にはアプリ登録が必要です。</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11495/</p>
+</div></section>
+<section class="page" id="page-news-11472"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2025.8.21</span> <span class="chip">お知らせ</span></p>
+<h1 class="ptitle">たけ田秋の焼肉チャレンジ祭り2025</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2025/08/秋の焼肉祭SNS1080_1350-819x1024.jpg" alt="" loading="lazy"><p>焼肉ホルモンたけ田から挑戦状‼️🚨</p><p>⏱でストップウォッチを止めろ。成功＝その日のお会計がタダ（上限1万円）💥</p><p>🍖対象メニュー ・やわらか赤身ロース ・やわらか赤身ロースねぎ塩 1品ごとに挑戦権🔥食べるほどチャンス増。</p><p>✨11秒28 or 11秒30 → ニアピン賞🎯 🎁Amazonギフト券1,000円分 ✨11秒台なら必ず → たけ田限定ステッカー🙌</p><p>📅9/1〜10/31 毎日開催 今秋で伝説を刻めっ🔥</p><p>・1皿注文につき1回挑戦のチャンス ・ニアピン賞の応募フォームにはgoogleアカウントが必要です ・本キャンペーンを実施していない店舗もございますのでお近くの店舗へお問い合わせください ・期間中でもステッカーやチケットがなくなり次第終了させて頂きますのでご了承ください</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11472/</p>
+</div></section>
+<section class="page" id="page-news-11464"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2025.7.14</span> <span class="chip">お知らせ</span></p>
+<h1 class="ptitle">たけ田のサマージャンボスクラッチ開催のお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2025/07/サマージャンボA4POP_page-0001-725x1024.jpg" alt="" loading="lazy"><p>🔥🔥 ＼＼ たけ田のサマージャンボスクラッチ ／／ 🎉大好評開催ーーー🎉</p><p>1枚たったの300円で運試し！ なんとスクラッチくじで、最大でその日ののチャンス‼️</p><p>✨しかも… 🎯＝絶対なにか当たる✨（最低でも300円のお食事券）その場でスクラッチ！</p><p>🎁気になる賞品はこちら！ 🥇1等：その日のお食事代 最大10,000円引き または次回使える食事券10,000円分 🥈2等：その日のお食事代 最大5,000円引き または次回使える食事券5,000円分 🎖3等：次回使える1,000円分の食事券 🎖4等：次回使える500円分の食事券 🎖5等：次回使える300円分の食事券</p><p>📅販売期間：2025年8月31日まで ※無くなり次第終了です！</p><p>🎟当選した「次回使えるお食事券」は 2025年9月1日〜11月30日までご利用可能！</p><p>🌈夏の思い出に、ちょっとしたワクワクをプラス。焼肉をもっと楽しく、もっとおトクに。「当たるかな〜？」と笑顔になれるこの企画、ご家族・お友だちとぜひご参加ください✨</p><p>スタッフに「サマージャンボください！」とお声がけいただければOK🙌 今年の夏も、焼肉ホルモンたけ田で！ ご来店をお待ちしております😊</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11464/</p>
+</div></section>
+<section class="page" id="page-news-11456"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2025.6.16</span> <span class="chip">お知らせ</span></p>
+<h1 class="ptitle">冷麺フェア開催決定</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2025/06/冷麺フェア_A1-723x1024.jpg" alt="" loading="lazy"><p>🍜期間2025年6月16日（月）〜8月31日（日） たけ田は「焼肉だけじゃない！冷麺も本気🔥」 あっさりなのに旨みたっぷりの黄金スープ×もちちゅる麺が絶品！</p><p>📌対象の冷麺を食べてスタンプを集めよう！ スタンプ3つで… 🎁抽選で50名様になんとをご自宅にお届け！</p><p>🍋対象の冷麺はこの4つ🍜 たけ田冷麺／檸檬冷麺／海苔冷麺／ねぎキムチ辛冷麺（キャンペーン限定商品）</p><p>🔥暑い日も、ジメジメの日も。冷たくてうまい幸せをぜひ。</p><p>※対象の冷麺1つにつき1つスタンプ！ ※スタンプカードが配布終了になる場合もありますのでご了承ください ※キャンペーン対象外の店舗もありますのでお問い合わせください ※応募にはgoogleアカウントが必要です ※当選者の発表は賞品の発送をもって代えさせて頂きます（9月下旬～）</p><p>盛岡冷麺とスープのセット×7食分</p><p>皆様のご来店を心よりお待ちしております！ 🍋安くてうまい笑って元気になれるホルモン酒場☀️‼️ 🥩焼肉一筋20年の肉マイスターが厳選！ 🥩A5ランク黒毛和牛が堪能できる✨ 🥩友人、カップル、ファミリー、会社の懇談会など幅広い場面でお楽しみいただけます🍋</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11456/</p>
+</div></section>
+<section class="page" id="page-news-11360"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2025.4.1</span> <span class="chip">お知らせ</span></p>
+<h1 class="ptitle">シマチョウ食べ比べ大会開催！</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2025/04/シマチョウ__A4-724x1024.jpg" alt="" loading="lazy"><p>🥩 チョウ(超)美味しい！ チョウ(超)楽しい！ チョウ(超)嬉しい！ 🥩 チュウチュウシマチュウ チュウじゃなくてチョウだよ🐭 シマチョウ食べてディズニーにも行けるよキャンペーン！</p><p>新名物近江牛シマチョウを使用した近江牛〈上〉とろホルモンと国産牛シマチョウのチョウゼツ(超絶)食べ比べバトルがついに登場！ それぞれの味わいをじっくり堪能して、どちらが“超絶”なのか、あなたの舌で確かめてください👅</p><p>対象商品をご注文のお客様へ抽選で15名(1か月5名)にJTB旅行券17000円が当たる！ 当選者はディズニーペアチケットに交換可能なので、旅行好きなあなたにもぴったり🎢✨</p><p>4月8日～なくなり次第終了！（6月ごろまでを予定！）</p><p>対象商品を注文後、QRコードで応募しよう！注文数分応募できるのでチャンスは何度でも👀</p><p>1. 対象商品を注文 2. スタッフからQRコードをゲット 3. QRコードから応募（注文した分だけ応募可能！） ※応募にはGoogleアカウントが必要です📱</p><p>国産シマチョウ＆近江牛シマチョウ食べ比べ塩／国産シマチョウやみつき＆塩食べ比べ／国産シマチョウキムチ家＆黒食べ比べ／国産シマチョウ塩＆味噌食べ比べ</p><p>ホルモン好きも、あまり得意じゃない方も、この機会にぜひお試しあれ！🤩 温かくなる季節にピッタリの贅沢な食べ比べ！🍴旅行券を当てて、ワクワクした夏旅の準備をしよう🎉</p><p>■キャンペーン対象店舗 武蔵藤沢店、立川南口店、志木店、北浦和店、札幌駅前店、海浜幕張店、豊田店、熊谷店、辻堂店、橋本店、仙台店、川崎店、大宮店、赤羽店、川越店、高田馬場店、古淵店、中野店、天文館店、所沢北原店、静岡呉服町店、北戸田店、飯能店、八王子店、木更津店、天神大名店、茅ヶ崎店、金沢諸江店、三宮トアロード店、東久留米店、広島府中店、米子角盤店、甲府平和通り店、八戸ヴィアノヴァ店、小手指店、館山店、朝日店</p><p>※たけ田の一部店舗では取り扱いのない店舗がございます。店舗へ直接お問い合わせください。</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11360/</p>
+</div></section>
+<section class="page" id="page-news-11355"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2025.4.1</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">肉ト米あさ田高田馬場店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2025/03/S__75309134-1024x769.jpg" alt="" loading="lazy"><p>オープン日：2025年4月2日（水）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11355/</p>
+</div></section>
+<section class="page" id="page-news-11353"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2025.3.23</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">焼肉ひろ㐂オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2025/03/きろき店舗写真-1024x769.jpg" alt="" loading="lazy"><p>オープン日：2025年3月25日（月）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11353/</p>
+</div></section>
+<section class="page" id="page-news-11326"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2025.2.1</span> <span class="chip">お知らせ</span></p>
+<h1 class="ptitle">春の宴会超得早割プラン予約受付開始！</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2025/02/hayawariA1_0-723x1024.jpg" alt="" loading="lazy"><p>歓送迎会や春のお祝いに最適！</p><p>なんと今回はプレミアム飲み放題がついてこの価格!!早めのご予約でお得にお楽しみください♪</p><p>※宴会実施可能期間は2月1日～5月31日までです。 ※ご予約はお電話かスタッフまで！</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11326/</p>
+</div></section>
+<section class="page" id="page-news-11315"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2025.1.28</span> <span class="chip">お知らせ</span></p>
+<h1 class="ptitle">「キムチの家」さん×たけ田コラボの特別メニューが1月27日から新登場！</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2025/01/キムチの家pop_A4-724x1024.jpg" alt="" loading="lazy"><p>ついに最高にうまいキムチだれの開発に成功！ 絶対くせになる！ちょっぴり辛いけど…うまーい！もうひとくち！</p><p>あの大人気の「キムチの家」さん×たけ田コラボの特別メニューが1月27日から新登場！</p><p>さらに…！ホルモンキムチが3倍うまくなるを皆さんに楽しんでほしいから…通常120円→60円（税込66）これは注文マストです！</p><p>■キムチの家さんの動画にたけ田が登場しました！（TikTok @kimuti.house.jp.ne.co）</p><p>■キムチだれホルモン対象店舗 武蔵藤沢店、立川南口店、池袋店、志木店、北浦和店、札幌駅前店、海浜幕張店、豊田店、倉敷店、熊谷店、辻堂店、橋本店、仙台店、川崎店、西川口店、大宮店、赤羽店、川越店、高田馬場店、古淵店、中野店、天文館店、所沢北原店、静岡呉服町店、北戸田店、飯能店、八王子店、木更津店、天神大名店、茅ヶ崎店、金沢諸江店、三宮トアロード店、東久留米店、広島府中店、米子角盤店、甲府平和通り店、八戸ヴィアノヴァ店、小手指店、館山店、朝日店</p><p>※たけ田の一部店舗では取り扱いのない店舗がございます。店舗へ直接お問い合わせください。</p><p>■メニュー対象期間 2025年1月27日～6月3日</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11315/</p>
+</div></section>
+<section class="page" id="page-news-11308"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2024.11.13</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">朝日店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2024/11/S__4309094_0-1024x768.jpg" alt="" loading="lazy"><p>オープン日：2024年11月14日（月）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11308/</p>
+</div></section>
+<section class="page" id="page-news-11306"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2024.10.10</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">肉ト米あさ田大森店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2024/09/パースA-2-999x1024.jpg" alt="" loading="lazy"><p>オープン日：2024年10月11日（金）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11306/</p>
+</div></section>
+<section class="page" id="page-news-11304"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2024.10.1</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">館山店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2024/09/messageImage_1727336377112-1024x658.jpg" alt="" loading="lazy"><p>オープン日：2024年10月2日（水）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11304/</p>
+</div></section>
+<section class="page" id="page-news-11205"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2024.7.25</span> <span class="chip">イベント情報</span></p>
+<h1 class="ptitle">本日よりたけ田 夏の日本三大和牛フェア開催</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2024/07/A1たて_表面-更新済み-723x1024.jpg" alt="" loading="lazy"><p>🐮たけ田 夏の日本三大和牛フェア開催🐮 今年の夏は「和牛もうまいたけ田」で焼肉🐮 たけ田で近江牛を食べて神戸牛・松阪牛を当てようキャンペーン</p><p> 👑〈近江牛贅沢しゃぶロース〉 1枚1699円→999円(税込1099円) 👑近江牛贅沢しゃぶロース＆和牛ミスジ1999円(税込2199円)</p><p>日本最古のブランド牛である近江牛。江戸時代には将軍家へ献上されていたほどの逸品。美しいサシやとろけるようやわらかさをさっと焼いて黄身と一緒にどうぞ♪</p><p>さらに…アプリから応募で神戸牛or松坂牛が当たる…！📱</p><p>2024年7月25日（木）～9月23日(月)</p><p>①たけ田で近江牛贅沢しゃぶロースorしゃぶロース・ミスジ盛り合わせをご注文 ②たけ田アプリ登録→アプリバナーから応募 ③抽選で150名様に神戸牛or松阪牛がお家に届く</p><p>マジでうまいと思う「焼肉チェーン」ランキングTOP30！ 1位は「焼肉ホルモン たけ田」 なんとっ！たけ田が1位に選ばれました！みなさまのおかげです😭</p><p>今回の日本三大和牛フェアは「和牛もうまいたけ田」ならではの企画です。これからもご来店頂いたお客様に「おいしい！」と言っていただける焼肉屋さんを一生懸命目指します！</p><p>武蔵藤沢店、立川南口店、志木店、北浦和店、札幌駅前店、海浜幕張店、豊田店、倉敷店、熊谷店、辻堂店、橋本店、仙台店、川崎店、西川口店、大宮店、赤羽店、川越店、溝の口店、高田馬場店、古淵店、中野店、天文館店、所沢北原店、静岡呉服町店、北戸田店、飯能店、八王子店、木更津店、天神大名店、茅ヶ崎店、金沢諸江店、三宮トアロード店、東久留米店、広島府中店、米子角盤店、甲府平和通り店、八戸ヴィアノヴァ店、小手指店</p><p>※たけ田の一部店舗では取り扱いのない店舗がございます。店舗へ直接お問い合わせください。</p><p>※近江牛贅沢しゃぶロースは数量限定です。 ※神戸牛・松阪牛の当選者の発表は発送をもってかえさせていただきます。</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11205/</p>
+</div></section>
+<section class="page" id="page-news-11176"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2024.7.3</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">香港焼肉武田オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2024/07/S__14049288-1024x769.jpg" alt="" loading="lazy"><p>オープン日：2024年7月1日（月）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11176/</p>
+</div></section>
+<section class="page" id="page-news-11162"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2024.6.14</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">小手指店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2024/06/607588-772x1024.jpg" alt="" loading="lazy"><p>オープン日：2024年6月28日（金）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11162/</p>
+</div></section>
+<section class="page" id="page-news-11160"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2024.6.14</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">八戸店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2024/06/八戸-1024x768.jpg" alt="" loading="lazy"><p>オープン日：2024年6月28日（金）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11160/</p>
+</div></section>
+<section class="page" id="page-news-11130"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2024.6.2</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">甲府平和通り店 オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2024/06/S__71368793-1024x769.jpg" alt="" loading="lazy"><p>オープン日：2024年6月11日（火）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/11130/</p>
+</div></section>
+<section class="page" id="page-news-10984"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2024.5.1</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">焼肉たけちゃん オープンのお知らせ</h1>
+<article class="newsbody"><p>オープン日：2024年5月1日（水）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10984/</p>
+</div></section>
+<section class="page" id="page-news-10975"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2024.4.16</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">米子角盤店 オープンのお知らせ</h1>
+<article class="newsbody"><p>オープン日：2024年4月16日（火）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10975/</p>
+</div></section>
+<section class="page" id="page-news-10950"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2024.3.8</span> <span class="chip">メディア掲載</span></p>
+<h1 class="ptitle">王様のブランチ放送決定</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2024/03/mainメディア0309-1024x1024.jpg" alt="" loading="lazy"><p>なんとたけ田がで放送されることになりました！感謝です…！</p><p>放送日：2024年3月9日（土） [ごはんクラブ]食べ放題！エンドレスグルメ</p><p>[食べ放題]至福の和牛＆牛タン焼肉放題コース4980</p><p>先付けに昔話に出てくる玉手箱から始まり、和牛、牛タン、ハラミ、カルビなどなど95種類のメニューが食べ放題！</p><p>今回の「和牛食べ放題」を楽しめる店舗は以下です。よさそう～！と思ったらぜひお立ち寄り頂けますと嬉しいです。</p><p>■池袋焼肉ホルモンたけ田 池袋駅 徒歩3分 ■和牛焼肉食べ放題 武田-Takeda-渋谷店 渋谷駅 徒歩3分 センター街 ■新宿焼肉ホルモンたけ田 新宿駅 徒歩3分 靖国通りビル４階 ■立川焼肉ホルモンたけ田南口店 立川駅南口すぐ 徒歩１分 ネオン看板が見えます ■橋本焼肉ホルモンたけ田 橋本駅 徒歩1分 京王線橋本駅/ＪＲ橋本駅南口からすぐ</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10950/</p>
+</div></section>
+<section class="page" id="page-news-10946"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2024.3.7</span> <span class="chip">イベント情報</span></p>
+<h1 class="ptitle">3/15〜🌸たけ田🌸</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2024/03/tonguematsuri_②A4-724x1024.jpg" alt="" loading="lazy"><p>「単純」？「短気」？「単位落とした」？人が逆に得する…？ 条件に当てはまる人はたけ田に行かなきゃ損しちゃうかも！</p><p>■たけ田春のタン祭り♪の期間 2024年3月15日～3月24日の10日間</p><p>■タン祭りの内容🍖🌸 春のタン祭り盛り1380円相当→条件に当てはまった人は…なんと（税込1089円）で提供！ ※キャンペーンは1席1皿限定です ※通常価格1380円でも販売しております</p><p>■以下の「タン」に当てはまる人は割引の990円！ 氏名に「タン」がつく、単純、短大生、単位おとしました、短髪、体がタンク型、探偵、短気、炭水化物が好き、探検家、大胆、短距離走が得意な人、今日は元気満タン、タンクトップ着てきた人、短パン履いてきた人、服にボタンがついてる、炭酸好き、タンタンメンやワンタンメン好き、自己鍛錬を欠かさない、豪胆、単車乗り、短歌をたしなむ、家にタンスがある、タンが大～好き♡</p><p>■さらに…！？ ①タン身赴任の方にはスタッフのあたたかい「お疲れ様です」をプレゼント！ ②ご来店日がタン生日の方は無料でをお店からプレゼント！ ※生年月日が分かるものをお見せください</p><p>■キャンペーン対象店舗 全国の焼肉ホルモンたけ田店舗（渋谷センター街店は除く） ※たけ田の一部店舗では取り扱いのない店舗がございます。店舗へ直接お問い合わせください。</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10946/</p>
+</div></section>
+<section class="page" id="page-news-10937"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2024.2.11</span> <span class="chip">イベント情報</span></p>
+<h1 class="ptitle">5周年創業祭を開催します！</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2024/02/5周年バナー01-1024x1024.jpg" alt="" loading="lazy"><p>🎊焼肉ホルモンたけ田おかげさまで5周年創業祭！🎊 皆様のおかげで5周年！感謝の気持ちを込めて…！</p><p>2024年2月20日～2月24日の4日間</p><p>ドリンク人気1位🍋レモンサワー飲み放題100分990円が、なんと→555円（税込611） ※お席の人数分注文OK（20歳未満はのぞく）</p><p>お肉人気1位🍖和牛たけ田カルビが1皿555円（税込611） ※1席1皿</p><p>対象条件 たけ田公式Instagramフォロー 創業祭の投稿へいいね＆コメント ※当日スタッフにお見せください このキャンペーン情報を見た方のみ受けられるキャンペーンです！</p><p>キャンペーン対象店舗 武蔵藤沢店、立川北口店、立川南口店、池袋店、志木店、北浦和店、札幌駅前店、海浜幕張店、豊田店、倉敷店、熊谷店、辻堂店、橋本店、仙台店、川崎店、西川口店、大宮店、赤羽店、川越店、溝の口店、高田馬場店、古淵店、中野店、新宿店、天文館店、所沢北原店、呉服町店、北戸田店、飯能店、八王子店、木更津店、天神大名店、茅ヶ崎店、金沢諸江店、三宮トアロード店、東久留米店、広島府中店</p><p>※たけ田の一部店舗では取り扱いのない店舗がございます。店舗へ直接お問い合わせください。</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10937/</p>
+</div></section>
+<section class="page" id="page-news-10930"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2024.2.10</span> <span class="chip">イベント情報</span></p>
+<h1 class="ptitle">2月29日は「29の日」！！</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2024/02/2月29の日SNS用01-1024x1024.jpg" alt="" loading="lazy"><p>🍖今年2月29日は…なんと4年に1度の肉の日🍖 プレミアムミートデイ🍖 そんなめでたき日に私たちが盛り上げないはずはない…！ 2024年2月29日はお客様に喜んで頂きたいから…</p><p>🍖ながーいタン（豚）380円（税込418）と 🍖ねぎ塩にんにくハラミ599円（税込659）が1つ買うともう１皿ついてくる！</p><p>🍖黒毛和牛A5厚切り特上カルビ1099円（税込1209）が29％OFF!!</p><p>対象条件 たけ田公式Instagramフォローするだけ！ ※当日スタッフに画面をお見せいただくだけでOK！</p><p>マジでうまいと思う「焼肉チェーン」ランキングTOP30！ 1位は「焼肉ホルモン たけ田」 なんとっ！たけ田が1位に選ばれました！みなさまのおかげです😭</p><p>今回の29の日もたけ田のタン、ハラミ、カルビそれぞれ大人気商品をご用意しました！これからもご来店頂いたお客様に「おいしい！」と言っていただける焼肉屋さんを一生懸命目指します！</p><p>キャンペーン対象店舗 武蔵藤沢店、立川北口店、立川南口店、池袋店、志木店、北浦和店、札幌駅前店、海浜幕張店、豊田店、倉敷店、熊谷店、辻堂店、橋本店、仙台店、川崎店、西川口店、大宮店、赤羽店、川越店、溝の口店、高田馬場店、古淵店、中野店、新宿店、天文館店、所沢北原店、静岡呉服町店、北戸田店、飯能店、八王子店、木更津店、天神大名店、茅ヶ崎店、金沢諸江店、三宮トアロード店、東久留米店、広島府中店</p><p>■注意事項 ※1席1皿のサービスになりますので3種類から1皿お選びください。 ※他券、他キャンペーンと併用不可とさせていただきます。</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10930/</p>
+</div></section>
+<section class="page" id="page-news-10838"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2023.12.4</span> <span class="chip">イベント情報</span></p>
+<h1 class="ptitle">たけ田『年末プレミアムジャンボ』キャンペーン開催中！</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2023/12/484588201974432322-1024x1024.jpg" alt="" loading="lazy"><p>『年末プレミアムジャンボ』って…！？ 2023年12月1日から、店内でのご飲食代4000円（税込）ごとに1枚スクラッチカードが引ける！</p><p>スクラッチカードはなんと≪ハズレなし！≫ぜっったいに豪華賞品や金券が当たります！ 金券は次回ご来店から使用可能！</p><p>当たり🎯商品・金券内容 1000円金券・超はみでる和牛8秒炙り・厚切り仙台風牛タン2人前・厚切り和牛特上カルビ・生食感和牛ユッケ 豪華賞品が絶対当たる！</p><p>開催期間 2023年12月1日〜なくなり次第終了 ※キャンペーンは併用不可</p><p>キャンペーン対象店舗 武蔵藤沢店、立川北口店、立川南口店、池袋店、志木店、北浦和店、札幌駅前店、海浜幕張店、豊田店、倉敷店、熊谷店、辻堂店、橋本店、仙台店、川崎店、西川口店、大宮店、青砥店、赤羽店、川越店、溝の口店、高田馬場店、平塚店、古淵店、中野店、新宿店、天文館店、所沢店、呉服町店、北戸田店、飯能店、八王子店、木更津店、天神大名店、茅ヶ崎店、金沢諸江店、三宮トアロード店、東久留米店、広島府中店</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10838/</p>
+</div></section>
+<section class="page" id="page-news-10833"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2023.11.24</span> <span class="chip">イベント情報</span></p>
+<h1 class="ptitle">たけ田の『タンで埼玉！』キャンペーン👄</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2023/11/S__68059236-1024x750.jpg" alt="" loading="lazy"><p>たけ田の本キャンペーンが 🔶フジテレビ めざまし8 🔶TBS THE TIME にて放送されました！</p><p>■『タンで埼玉』ってなに…！？ 2023年11月23日映画『翔んで埼玉 〜琵琶湖より愛をこめて〜』公開を記念して、埼玉発祥の企業である焼肉ホルモンたけ田が勝手に応援しちゃうぞというキャンペーンです！！</p><p>■キャンペーン内容 ①翔んで埼玉の映画半券をお持ちのお客様なんと…お会計20％OFF！(※割引上限は2000円)※キャンペーン期間内の半券であればOK ②タンで埼玉企画のをいいね＆フォローで期間限定のゴージャスなタンで埼玉盛り 1199円がなんと…699円で食べられる。 ③埼玉県民は草〈包み菜〉無料（「埼玉県人にはそこらへんの草でも食わせておけ」というセリフから）※埼玉県民と証明できるものをお持ちください（1人1皿まで）</p><p>※キャンペーンは併用不可 映画の半券は回収します</p><p>■開催期間 2023年11月23日(木)〜12月7日(木)まで</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10833/</p>
+</div></section>
+<section class="page" id="page-news-10810"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2023.10.11</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">焼肉ホルモンたけ田 広島府中店オープンのお知らせ</h1>
+<article class="newsbody"><p>オープン日：2023年10月17日（金）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10810/</p>
+</div></section>
+<section class="page" id="page-news-10683"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2023.8.27</span> <span class="chip">イベント情報</span></p>
+<h1 class="ptitle">にんにくフェア開催！</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2023/08/にんにくフェアTTO202309-1024x750.jpg" alt="" loading="lazy"><p>この世のにんにく好きよ！集まれーーー！ にんにく好き大満足の旨味たっぷりスペシャルメニューをご用意！</p><p>たけ田創業からの『シロダレ』を加えて口あたりなめらかに！ごろっとにんにくのパンチが最高！ こんなの食べてみたかった！にんにく好きのエネルギーを集めた「たけ田の元気玉」 なんと中からごろっとにんにく（元気）が…！</p><p>その他！にんにくに相性抜群の「赤辛にんにく」や「ペッパーにんにく」も！ 最高のにんにく体験をあなたに！！</p><p>■開催期間 9/1～9/30</p><p>■対象店舗 武蔵藤沢店、立川北口店、立川南口店、池袋店、志木店、北浦和店、札幌駅前店、海浜幕張店、豊田店、倉敷店、熊谷店、辻堂店、橋本店、仙台店、川崎店、西川口店、大宮店、青砥店、赤羽店、川越店、溝の口店、高田馬場店、平塚店、古淵店、中野店、新宿店、天文館店、所沢店、呉服町店、北戸田店、飯能店、八王子店、木更津店、天神大名店、茅ヶ崎店、金沢諸江店、三宮トアロード店、東久留米店</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10683/</p>
+</div></section>
+<section class="page" id="page-news-10669"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2023.8.2</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">渋谷センター街店リニューアルのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2023/08/73526-36-a3a7acd6b2bdbaf8538155062396bd51-1368x1140-1-1024x853.webp" alt="" loading="lazy"><p>『焼肉ホルモンたけ田』渋谷センター街店は、2023年8月4日（金）に「和牛焼肉食べ放題 武田-Takeda-渋谷店」としてリニューアルオープンいたします。</p><p>和牛ならではの特徴は柔らかい食感と、ほんのり香る甘い香りが一層牛肉を美味しく感じることができます。その貴重さからも“和牛食べ放題”は焼肉業界においても利益率度外視で難しいと言われておりますが、それを『焼肉ホルモンたけ田』で培ってきた「仕入れ」で可能にいたしました。「和牛焼肉食べ放題 武田-Takeda-渋谷店」では、生産者と提携し牧場から直接買入た肉をご提供し、より新鮮で美味しい和牛をリーズナブルに提供いたします。</p><p> ◆Lv3至高の和牛＆牛タン焼肉放題100分 4,980円(税込5,478円) 超コスパ！A5和牛もタンも食べ放題のお得コース。和牛玉手箱付、厚切り牛タン、上タン塩、ながーいねぎタン塩、A5和牛カルビ、A5和牛すきやきカルビ、はみでる！和牛赤身の焼きしゃぶなど充実の焼肉メニューから新鮮ホルモン、屋台めし、ビビンバ、冷麺など100種以上全て食べ放題！</p><p>◆Lv2和牛付スタンダード焼肉放題100分 3,980円(税込4,378円) 和牛玉手箱付！和牛切り落としやカルビ、ホルモンなどの焼肉から屋台めし、ビビンバ、冷麺など充実の100種類以上が食べ放題！</p><p>◆Lv0ジューシー焼肉尽くしパーティー100分 2,980円（税込3,278円） たけ田自慢のカルビやハラミやホルモン、おいしくて種類充実のサイドメニューも、お気軽価格でおなかいっぱいに食べられる！和牛なしのカジュアルコースです。</p><p>◆Lv1プレミアム和牛とスペシャルタンの焼肉放題100分 5,980円(税込6,578円) 特上厚切りマンゴータンも食べ放題の極上食べ放題コース！</p><p>また、店内には縁日コーナーを設置し、ドリンクバーをご注文いただいた方はセルフでかき氷、わたあめ、駄菓子なども楽しめます。</p><p>店名：和牛焼肉食べ放題 武田-Takeda-渋谷店 電話：03-6433-7495 住所：東京都渋谷区宇田川町24-8 レジャープラザビル1F アクセス：JR渋谷駅から徒歩2分 定休日：無し 座席数：16卓71席</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10669/</p>
+</div></section>
+<section class="page" id="page-news-10675"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2023.7.30</span> <span class="chip">イベント情報</span></p>
+<h1 class="ptitle">山の日キャンペーン開催のお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2023/08/山の日02_⑤TTO-1024x751.jpg" alt="" loading="lazy"><p>いつも焼肉ホルモンたけ田にご来店いただきましてありがとうございます。日頃のご愛顧の感謝を込めて、8/1〜8/11までの期間でお得なキャンペーンを実施します。</p><p>第1弾 8/1（火）〜8/8（火） 期間中毎日先着5組様に「黒毛和牛A5切り落としカルビ」プレゼント！</p><p>第2弾 8/11（金） 当日先着10組様に「ねぎ山たけ田タン（豚）ノーマルサイズ」プレゼント！</p><p>ぜひこの機会に焼肉ホルモンたけ田にご来店ください。</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10675/</p>
+</div></section>
+<section class="page" id="page-news-10623"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2023.4.25</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">東久留米焼肉ホルモンたけ田 リニューアルオープンのお知らせ</h1>
+<article class="newsbody"><p>オープン日：2023年4月28日（金）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10623/</p>
+</div></section>
+<section class="page" id="page-news-10372"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2023.4.7</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">焼肉ホルモンたけ田 神戸三宮店オープンのお知らせ</h1>
+<article class="newsbody"><p>オープン日：2023年4月28日（金）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10372/</p>
+</div></section>
+<section class="page" id="page-news-10357"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2023.3.13</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">金沢諸江店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2023/03/S__515162114-1024x647.jpg" alt="" loading="lazy"><p>オープン日：2023年3月13日（月）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10357/</p>
+</div></section>
+<section class="page" id="page-news-10349"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2023.2.28</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">茅ヶ崎店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2023/03/17718C37-F591-4915-BAB3-9DCDD8DB96B5-1024x584.jpg" alt="" loading="lazy"><p>オープン日：2023年3月1日（木）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10349/</p>
+</div></section>
+<section class="page" id="page-news-10291"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2023.2.14</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">天神大名店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2023/02/S__509952031-1024x768.jpg" alt="" loading="lazy"><p>オープン日：2023年2月23日（木） 23日(木)16時〜23時 24日(金)16時〜23時 25日(土)11時〜23時 26日(日)11時〜23時 27(月)、28日(火)ランチ時間帯の営業は無し17：00～</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10291/</p>
+</div></section>
+<section class="page" id="page-news-10289"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2023.2.14</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">志木店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2023/01/志木店_パース_230131-コピー12.jpg" alt="" loading="lazy"><p>オープン日：2022年2月14日（火）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10289/</p>
+</div></section>
+<section class="page" id="page-news-10287"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2023.2.14</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">木更津店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2023/01/S__4423751.jpg" alt="" loading="lazy"><p>オープン日：2023年1月29日（日）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10287/</p>
+</div></section>
+<section class="page" id="page-news-10258"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2022.12.22</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">飯能店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2022/12/S__497885194-1024x768.jpg" alt="" loading="lazy"><p>オープン日：2022年12月23日（木）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10258/</p>
+</div></section>
+<section class="page" id="page-news-10243"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2022.12.17</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">八王子店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2022/12/S__497426436.jpg" alt="" loading="lazy"><p>オープン日：2022年12月18日（日）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10243/</p>
+</div></section>
+<section class="page" id="page-news-10207"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2022.12.10</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">北戸田店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2022/11/428865-1024x1024.jpg" alt="" loading="lazy"><p>オープン日：2022年12月10日（土）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10207/</p>
+</div></section>
+<section class="page" id="page-news-10190"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2022.11.23</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">所沢北原店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2022/11/S__491798534-1024x777.jpg" alt="" loading="lazy"><p>オープン日時：11/24（木）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10190/</p>
+</div></section>
+<section class="page" id="page-news-10194"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2022.11.20</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">静岡呉服町店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2022/10/74DA84D2-36E1-4E35-984E-05BA46317A5F-1024x686.jpg" alt="" loading="lazy"><p>オープン日時：11/21（月）</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10194/</p>
+</div></section>
+<section class="page" id="page-news-10137"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2022.10.7</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">天文館店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2022/10/天文館1-846x1024.jpg" alt="" loading="lazy"><p>オープン日時：10/14（金） 住所：鹿児島県鹿児島市千日町9番35号 不動ビル</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10137/</p>
+</div></section>
+<section class="page" id="page-news-10134"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2022.10.7</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">中野店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2022/10/S__480583688-1024x768.jpg" alt="" loading="lazy"><p>オープン日時：10/13（木） 住所：東京都中野区中野5-64-10 サンモール中野ビル4階</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10134/</p>
+</div></section>
+<section class="page" id="page-news-10130"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2022.10.7</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">新宿店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2022/10/S__480583690-1024x768.jpg" alt="" loading="lazy"><p>オープン日時：10/13（木） 住所：東京都新宿区歌舞伎町1-16-1 今宮ビル4階</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/10130/</p>
+</div></section>
+<section class="page" id="page-news-9723"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2022.8.1</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">東久留米店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2022/07/S__463757319-683x1024.jpg" alt="" loading="lazy"><p>オープン日時：8/3（水） 住所：東京都東久留米市東本町3-20</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/9723/</p>
+</div></section>
+<section class="page" id="page-news-9721"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2022.7.19</span> <span class="chip">お知らせ</span></p>
+<h1 class="ptitle">グランドメニューリニューアルのお知らせ</h1>
+<article class="newsbody"><p>焼肉ホルモンたけ田のグランドメニューをリニューアル！</p><p>もっと皆様に愛され楽しんでいただける場を提供できるよう、もっともっとたけ田は進化していきます！！</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/9721/</p>
+</div></section>
+<section class="page" id="page-news-9719"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2022.7.12</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">古淵店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2022/07/S__459382799-768x1024.jpg" alt="" loading="lazy"><p>オープン日時：7/14（木） 住所：神奈川県相模原市南区古淵1-8-12 T&amp;T第一ビル2階</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/9719/</p>
+</div></section>
+<section class="page" id="page-news-9715"><div class="wrap">
+<button class="backlink" onclick="go('news')">← お知らせ一覧へ戻る</button>
+<p><span class="dt" style="font-weight:800">2022.7.12</span> <span class="chip red">新店情報</span></p>
+<h1 class="ptitle">横浜西口店オープンのお知らせ</h1>
+<article class="newsbody"><img src="https://29takeda.com/wp-content/uploads/2022/07/messageImage_1657517645663-1024x736.jpg" alt="" loading="lazy"><p>オープン日時：7/14（木） 住所：神奈川県横浜市西区南幸２丁目４−１ 石坂ビル 1F</p></article>
+<p class="srcnote">出典：焼肉ホルモンたけ田 公式サイト https://29takeda.com/news/9715/</p>
+</div></section>
+<section class="page" id="page-contact"><div class="wrap">
+<h1 class="ptitle">お問い合わせ</h1>
+<p>焼肉ホルモンたけ田へのお問い合わせは下記リンクよりお願いいたします。</p>
+<p><strong>※ご予約、ご予約の変更、忘れ物の確認などは対象店舗へご連絡お願い致します。</strong></p>
+<p><button class="btn sub" onclick="go('shops')">各店舗へのお問い合わせはこちら</button></p>
+<p><button class="btn" onclick="go('contact-honbu')">本部へのお問い合わせ</button></p>
+</div></section>
+<section class="page" id="page-contact-honbu"><div class="wrap">
+<button class="backlink" onclick="go('contact')">← お問い合わせへ戻る</button>
+<h1 class="ptitle">本部へのお問い合わせ</h1>
+<form class="contact" onsubmit="return false">
+<label>お名前 <span style="color:#C8102E">必須</span></label><input type="text" autocomplete="name">
+<label>メールアドレス <span style="color:#C8102E">必須</span></label><input type="email" autocomplete="email">
+<label>店舗名 <span style="color:#C8102E">必須</span></label><input type="text">
+<label>お問い合わせ内容 <span style="color:#C8102E">必須</span></label><textarea rows="6"></textarea>
+<p style="margin-top:18px"><button class="btn" type="submit">送信する</button></p>
+<p class="note">※この再構築版ではフォーム送信は動作しません。送信先は公式サイトのお問い合わせフォームをご利用ください。</p>
+</form>
+</div></section>
+<section class="page privacy" id="page-privacy"><div class="wrap">
+<h1 class="ptitle">プライバシーポリシー</h1>
+<h3>プライバシーポリシー（お問い合わせに関する個人情報の取り扱い）</h3><p>株式会社ミナモト（以下「当社」といいます。）は、お客様からのお問い合わせに際して取得する個人情報について、以下のとおり取り扱います。</p><h3>1．取得する情報</h3><p>当社は、お問い合わせフォームを通じて以下の情報を取得する場合があります。氏名／メールアドレス／電話番号／お問い合わせ内容／その他、お客様が任意で入力された情報</p><h3>2．利用目的</h3><p>取得した個人情報は、以下の目的のために利用いたします。お問い合わせへの対応・回答／必要に応じたご連絡／サービスの改善・品質向上のための参考</p><h3>3．第三者提供について</h3><p>当社は、法令に基づく場合を除き、取得した個人情報を第三者に提供することはありません。</p><h3>4．管理体制</h3><p>当社は、お客様の個人情報を適切に管理し、漏えい・改ざん・不正アクセスなどの防止に努めます。</p><h3>5．開示・訂正・削除等のご請求</h3><p>お客様ご自身の個人情報について、開示・訂正・削除等をご希望の場合は、下記のお問い合わせ先までご連絡ください。合理的な範囲で速やかに対応いたします。</p><h3>6．お問い合わせ窓口</h3><p>株式会社ミナモト（飲食事業部） 住所：埼玉県入間市下藤沢447 グレイス武蔵藤沢 1F TEL：04-2963-4066</p><p>本ポリシーは、必要に応じて改定される場合があります。改定後は、本ウェブサイト上にて告知いたします。以上</p>
+</div></section>
+<footer class="site"><div class="wrap">
+<div style="font-weight:900;color:#fff;font-size:17px">焼肉ホルモンたけ田</div>
+<div>運営：株式会社ミナモト 住所：埼玉県入間市下藤沢447 グレイス武蔵藤沢 1F TEL：04-2963-4066</div>
+<div><a href="#" onclick="go('privacy');return false;">プライバシーポリシー</a> ／ <a href="#" onclick="go('contact');return false;">お問い合わせ</a> ／ <a href="https://29takeda.com/" target="_blank" rel="noopener">公式サイト</a></div>
+<div>Copyright © 焼肉ホルモンたけ田 All Rights Reserved.</div>
+<div class="srcnote" style="color:#888">このページは現行公式サイト（29takeda.com）の公開内容をトレースして再構築した確認用ページです。</div>
+</div></footer>
+<script>
+var ITEMS=[{"cat": "niku", "name": "A5黒毛和牛たけ田カルビ", "price": 1099, "note": "", "group": ""}, {"cat": "niku", "name": "限定別格霜降りゴッドタン 中盛り8枚", "price": 2178, "note": "", "group": ""}, {"cat": "niku", "name": "名物ねぎ牛タン塩", "price": 1408, "note": "", "group": ""}, {"cat": "niku", "name": "名物タン３種盛り", "price": 1408, "note": "", "group": ""}, {"cat": "niku", "name": "ねぎ包みタン(１個）", "price": 275, "note": "※写真は4個です。", "group": ""}, {"cat": "niku", "name": "AU和牛 赤身上ロース", "price": 1099, "note": "", "group": ""}, {"cat": "niku", "name": "限定別格霜降りゴッドタン 大盛り12枚", "price": 3278, "note": "", "group": ""}, {"cat": "niku", "name": "牛タン塩", "price": 1099, "note": "", "group": ""}, {"cat": "niku", "name": "厚切り上豚タン", "price": 879, "note": "", "group": ""}, {"cat": "niku", "name": "厚切りタン塩ニンニク", "price": 989, "note": "", "group": ""}, {"cat": "niku", "name": "米泥棒米堪能タンロース", "price": 769, "note": "", "group": ""}, {"cat": "niku", "name": "まかないねぎ牛タン", "price": 769, "note": "", "group": ""}, {"cat": "niku", "name": "ながーいタン（豚）", "price": 549, "note": "", "group": ""}, {"cat": "niku", "name": "A5黒毛和牛特上カルビ 売切御免", "price": 1408, "note": "", "group": ""}, {"cat": "niku", "name": "A5黒毛和牛希少部位カイノミ 売切御免", "price": 1408, "note": "", "group": ""}, {"cat": "niku", "name": "プレミアム上ハラミ", "price": 1518, "note": "", "group": ""}, {"cat": "niku", "name": "プレミアム上ハラミねぎ塩", "price": 1518, "note": "", "group": ""}, {"cat": "niku", "name": "昔ながらの熟成カルビ", "price": 769, "note": "", "group": ""}, {"cat": "niku", "name": "肉屋本気の熟成ロース", "price": 769, "note": "", "group": ""}, {"cat": "niku", "name": "やわらか熟成ハラミ", "price": 879, "note": "", "group": ""}, {"cat": "niku", "name": "AU和牛 赤身上ロースねぎ塩", "price": 1099, "note": "", "group": ""}, {"cat": "innards", "name": "近江牛とろホルモン＆とろシマチョウ", "price": 879, "note": "", "group": ""}, {"cat": "innards", "name": "近江牛新鮮厚切りレバー", "price": 989, "note": "", "group": ""}, {"cat": "innards", "name": "特選厚切りミノ", "price": 989, "note": "", "group": ""}, {"cat": "innards", "name": "名物シロコロホルモン", "price": 484, "note": "", "group": ""}, {"cat": "innards", "name": "元祖かしら", "price": 484, "note": "", "group": ""}, {"cat": "innards", "name": "せせり", "price": 484, "note": "", "group": ""}, {"cat": "innards", "name": "大トロホルモン", "price": 418, "note": "", "group": ""}, {"cat": "innards", "name": "とんちゃん", "price": 418, "note": "", "group": ""}, {"cat": "innards", "name": "人気のはつ", "price": 484, "note": "", "group": ""}, {"cat": "innards", "name": "通好みコブクロ", "price": 484, "note": "", "group": ""}, {"cat": "innards", "name": "希少コリコリ", "price": 484, "note": "", "group": ""}, {"cat": "innards", "name": "希少豚ウルテ", "price": 484, "note": "", "group": ""}, {"cat": "innards", "name": "とんとろ", "price": 484, "note": "", "group": ""}, {"cat": "innards", "name": "ソーセージ", "price": 484, "note": "", "group": ""}, {"cat": "sidemenu", "name": "牛ユッケ", "price": 1309, "note": "※塩せき加工しております", "group": ""}, {"cat": "sidemenu", "name": "数量限定！生触感牛レバ刺し", "price": 1309, "note": "※低温調理済み", "group": ""}, {"cat": "sidemenu", "name": "白センマイ刺し", "price": 769, "note": "", "group": ""}, {"cat": "sidemenu", "name": "焼肉専用ねぎ飯", "price": 549, "note": "", "group": ""}, {"cat": "sidemenu", "name": "たけ田名物冷麺", "price": 1099, "note": "", "group": ""}, {"cat": "sidemenu", "name": "たけ田サラダ", "price": 659, "note": "", "group": ""}, {"cat": "sidemenu", "name": "白菜キムチ", "price": 439, "note": "", "group": ""}, {"cat": "sidemenu", "name": "やみつき！自家製ねぎキムチ", "price": 549, "note": "", "group": ""}, {"cat": "sidemenu", "name": "カクテキ", "price": 439, "note": "", "group": ""}, {"cat": "sidemenu", "name": "キムチ盛り合わせ", "price": 769, "note": "", "group": ""}, {"cat": "sidemenu", "name": "もやしナムル", "price": 439, "note": "", "group": ""}, {"cat": "sidemenu", "name": "小松菜ナムル", "price": 439, "note": "", "group": ""}, {"cat": "sidemenu", "name": "さっぱり大根甘酢漬け", "price": 439, "note": "", "group": ""}, {"cat": "sidemenu", "name": "わかめナムル", "price": 439, "note": "", "group": ""}, {"cat": "sidemenu", "name": "ナムル盛り合わせ", "price": 659, "note": "", "group": ""}, {"cat": "sidemenu", "name": "包み菜", "price": 549, "note": "", "group": ""}, {"cat": "sidemenu", "name": "チョレギサラダ", "price": 659, "note": "", "group": ""}, {"cat": "sidemenu", "name": "箸休めの酢もつ", "price": 549, "note": "", "group": ""}, {"cat": "sidemenu", "name": "おつまみ枝豆", "price": 439, "note": "", "group": ""}, {"cat": "sidemenu", "name": "やみつきごま塩きゅうり", "price": 439, "note": "", "group": ""}, {"cat": "sidemenu", "name": "韓国のり", "price": 219, "note": "", "group": ""}, {"cat": "sidemenu", "name": "エリンギバター", "price": 549, "note": "", "group": ""}, {"cat": "sidemenu", "name": "チヂミ", "price": 549, "note": "", "group": ""}, {"cat": "sidemenu", "name": "にんにくオイル焼き", "price": 549, "note": "", "group": ""}, {"cat": "sidemenu", "name": "カマンベール串", "price": 219, "note": "", "group": ""}, {"cat": "sidemenu", "name": "わかめスープ", "price": 439, "note": "", "group": ""}, {"cat": "sidemenu", "name": "わかめクッパ", "price": 549, "note": "", "group": ""}, {"cat": "sidemenu", "name": "たまごスープ", "price": 439, "note": "", "group": ""}, {"cat": "sidemenu", "name": "たまごクッパ", "price": 549, "note": "", "group": ""}, {"cat": "sidemenu", "name": "ユッケジャンスープ", "price": 879, "note": "", "group": ""}, {"cat": "sidemenu", "name": "ユッケジャンクッパ", "price": 989, "note": "", "group": ""}, {"cat": "sidemenu", "name": "特製の牛テールスープ", "price": 769, "note": "", "group": ""}, {"cat": "sidemenu", "name": "特製の牛テールクッパ", "price": 879, "note": "", "group": ""}, {"cat": "sidemenu", "name": "たけ田名物冷麺ハーフ", "price": 879, "note": "", "group": ""}, {"cat": "sidemenu", "name": "檸檬冷麵", "price": 1099, "note": "", "group": ""}, {"cat": "sidemenu", "name": "檸檬冷麵ハーフ", "price": 879, "note": "", "group": ""}, {"cat": "sidemenu", "name": "赤冷麺", "price": 1099, "note": "", "group": ""}, {"cat": "sidemenu", "name": "赤冷麺ハーフ", "price": 879, "note": "", "group": ""}, {"cat": "sidemenu", "name": "辛麺", "price": 1099, "note": "", "group": ""}, {"cat": "sidemenu", "name": "牛テール温麺", "price": 989, "note": "", "group": ""}, {"cat": "sidemenu", "name": "ライス中", "price": 329, "note": "", "group": ""}, {"cat": "sidemenu", "name": "ライス大", "price": 418, "note": "", "group": ""}, {"cat": "sidemenu", "name": "ライス特大", "price": 484, "note": "", "group": ""}, {"cat": "sidemenu", "name": "お野菜ビビンバ", "price": 659, "note": "", "group": ""}, {"cat": "sidemenu", "name": "バニラアイス", "price": 329, "note": "", "group": ""}, {"cat": "sidemenu", "name": "季節のシャーベット", "price": 329, "note": "", "group": ""}, {"cat": "sidemenu", "name": "店内仕込みとろけるプリン", "price": 439, "note": "", "group": ""}, {"cat": "sidemenu", "name": "信玄様のパフェ", "price": 549, "note": "", "group": ""}, {"cat": "sidemenu", "name": "キッズカレー", "price": 329, "note": "", "group": ""}, {"cat": "sidemenu", "name": "チキンナゲット", "price": 439, "note": "", "group": ""}, {"cat": "sidemenu", "name": "ナゲットカレー", "price": 439, "note": "", "group": ""}, {"cat": "sidemenu", "name": "キッズプレート", "price": 439, "note": "", "group": ""}, {"cat": "sidemenu", "name": "お子様ごはん", "price": 220, "note": "", "group": ""}, {"cat": "drink", "name": "【60分】レモンサワー飲み放題", "price": 605, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "まるで酒場のハイボール[ﾉﾝｱﾙ]", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "【100分】レモンサワー飲み放題", "price": 1089, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "生ビール", "price": 605, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "生ビール（大）", "price": 935, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "生ビール(小)", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "瓶ビール", "price": 659, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "強炭酸ハイボール", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "デュワーズハイボール", "price": 549, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "コークハイボール", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "ジンジャーハイボール", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "ウーロンハイ", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "狭山抹茶ハイ", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "焼肉専用 杏子ウーロンハイ", "price": 549, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "焼肉専用 杏子ジャスミンハイ", "price": 549, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "完熟マンゴーのウーロンハイ", "price": 549, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "完熟マンゴーのジャスミンハイ", "price": 549, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "後味さわやかジャスミンハイ", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "芋焼酎 からり芋", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "麦焼酎 和ら麦", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "濃厚トマトハイ", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "ラムネサワー", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "ピーチティーサワー", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "マンゴーサワー", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "すっきりアップルビネガーサワー", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "下町ハイボール（バイス）", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "あんずサワー", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "いつものレモンサワー", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "タケダミンＣサワー", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "ピーチソーダー・ウーロン・オレンジ各種", "price": null, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "カシスソーダー・ウーロン・オレンジ各種", "price": null, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "やかんハイボール 大", "price": 2178, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "やかんウーロンハイ 大", "price": 2178, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "やかん狭山抹茶ハイ 大", "price": 2178, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "やかん中各種", "price": 1099, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "マッコリグラス", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "マッコリボトル（1L)", "price": 1539, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "レッドアイ", "price": 549, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "シャンディガフ", "price": 549, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "3種のポリフェノール赤梅酒", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "日本酒グラス", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "ノンアルコールビール", "price": 439, "note": "", "group": "ドリンク"}, {"cat": "drink", "name": "ウーロン茶", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "狭山茶抹茶", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "コーラ", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "ジンジャーエール", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "ラムネ", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "オレンジジュース", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "りんごジュース", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "カルピス", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "カルピスソーダ", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "トマトジュース", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "炭酸水", "price": 219, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "ホットウーロン茶", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "ホット抹茶", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "マンゴーソーダ", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "あんずソーダ", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "赤しそソーダ", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "アップルビネガーソーダ", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "ジャスミン茶", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "ピーチティーソーダ", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "タケダミンＣ", "price": 329, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "つぶつぶラムネファクトリー", "price": 439, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "セカンド・ラブ", "price": 439, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "まるで酒場のレモンサワー[ﾉﾝｱﾙ]", "price": 549, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "まるで酎ハイサワー(ドライ)[ﾉﾝｱﾙ]", "price": 439, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "まるで懐かしバイスサワー[ﾉﾝｱﾙ]", "price": 549, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "焼肉に合う杏子ウーロン[ﾉﾝｱﾙ]", "price": 439, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "杏子のご褒美ジャスミン[ﾉﾝｱﾙ]", "price": 439, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "マンゴー香る大人ウーロン[ﾉﾝｱﾙ]", "price": 439, "note": "", "group": "ソフトドリンク"}, {"cat": "drink", "name": "口直しのマンゴージャスミン[ﾉﾝｱﾙ]", "price": 439, "note": "", "group": "ソフトドリンク"}];
+var CATS={"niku": "肉", "innards": "ホルモン", "sidemenu": "サイド", "drink": "ドリンク"};
+function go(id){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});var t=document.getElementById('page-'+id);if(t){t.classList.add('active');window.scrollTo(0,0);}}
+function goMenu(cat){go('menu');document.querySelectorAll('.menusec').forEach(function(s){s.style.display='none'});document.querySelectorAll('.tabs button').forEach(function(b){b.classList.remove('on')});var sec=document.getElementById('menusec-'+cat);if(sec)sec.style.display='block';var tab=document.getElementById('tab-'+cat);if(tab)tab.classList.add('on');}
+function showItem(i){var it=ITEMS[i];document.getElementById('item-name').textContent=it.name;document.getElementById('item-cat').textContent=CATS[it.cat]+(it.group?'（'+it.group+'）':'');document.getElementById('item-price').textContent=it.price?'税込'+it.price+'円':'価格は店舗へお問い合わせください';document.getElementById('item-note').textContent=it.note?it.note:'—';go('item');}
+</script>
+</body></html>
